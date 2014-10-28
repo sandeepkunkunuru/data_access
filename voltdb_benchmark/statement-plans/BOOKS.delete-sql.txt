@@ -1,0 +1,6 @@
+SQL: DELETE FROM BOOKS WHERE (BOOK_ID = ?);
+PLAN:
+DELETE BOOKS
+ INDEX SCAN of "BOOKS" using its primary key index
+  uniquely match (BOOK_ID = ?0)
+

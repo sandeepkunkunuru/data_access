@@ -1,0 +1,6 @@
+SQL: SELECT book_id FROM books WHERE book_id = ?;
+PLAN:
+RETURN RESULTS TO STORED PROCEDURE
+ INDEX SCAN of "BOOKS" using its primary key index
+  uniquely match (BOOK_ID = ?0)
+

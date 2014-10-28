@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/data_access.iml" filepath="$PROJECT_DIR$/data_access.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shell/shell.iml" filepath="$PROJECT_DIR$/shell/shell.iml" />
+      <module fileurl="file://$PROJECT_DIR$/voltdb_benchmark/voltdb_benchmark.iml" filepath="$PROJECT_DIR$/voltdb_benchmark/voltdb_benchmark.iml" />
+      <module fileurl="file://$PROJECT_DIR$/voltdb_utilities/voltdb_utilities.iml" filepath="$PROJECT_DIR$/voltdb_utilities/voltdb_utilities.iml" />
+    </modules>
+  </component>
+</project>
+

@@ -1,0 +1,105 @@
+###############
+Setup
+###############
+###############
+# Start VoltDB server
+###############
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building voltdb_benchmark 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ voltdb_benchmark ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ voltdb_benchmark ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 0 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ voltdb_benchmark ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 17 source files to /home/sandeep/projects/data_access/voltdb_benchmark/target/classes
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 1.777s
+[INFO] Finished at: Tue Oct 28 16:02:05 EDT 2014
+[INFO] Final Memory: 11M/155M
+[INFO] ------------------------------------------------------------------------
+Compiling the reviewer application catalog.
+To perform this action manually, use the command line: 
+
+voltdb compile --classpath target/classes -o voltdb_benchmark.jar ddl.sql
+
+WARN: [Results.class]: Procedure Results has a statement with a non-deterministic result - statement: "SELECT book_name, book_id,  COUNT(*) as num_reviews     FROM reviews, books where reviews.book_id = books.book_id GROUP BY book_name,book_id order by num_reviews desc;", reason: the query result does not guarantee a consistent ordering
+------------------------------------------
+Successfully created voltdb_benchmark.jar
+Includes schema: ddl.sql
+
+[SP][WRITE] BOOKS.delete
+  DELETE FROM BOOKS WHERE (BOOK_ID = ?);
+
+[SP][WRITE] BOOKS.insert
+  INSERT INTO BOOKS VALUES (?, ?);
+
+[SP][READ] BOOKS.select
+  SELECT * FROM BOOKS WHERE (BOOK_ID = ?);
+
+[SP][WRITE] BOOKS.update
+  UPDATE BOOKS SET BOOK_ID = ?, BOOK_NAME = ? WHERE (BOOK_ID = ?);
+
+[SP][WRITE] BOOKS.upsert
+  UPSERT INTO BOOKS VALUES (?, ?);
+
+[MP][WRITE] Initialize
+  SELECT COUNT(*) FROM books;
+  INSERT INTO books (book_name, book_id) VALUES (?, ?);
+
+[MP][READ] Results
+  [TABLE SCAN] SELECT book_name, book_id, COUNT(*) as num_reviews FROM reviews, bo...
+
+[SP][WRITE] Review
+  SELECT book_id FROM books WHERE book_id = ?;
+  SELECT num_reviews FROM v_reviews_by_email WHERE email = ?;
+  INSERT INTO reviews (email, review, book_id) VALUES (?, ?, ?);
+
+[SP][WRITE] REVIEWS.insert
+  INSERT INTO REVIEWS VALUES (?, ?, ?);
+
+[MP][READ] ReviewsForBook
+  [TABLE SCAN] SELECT COUNT(*) as num_reviews FROM reviews, books where reviews.bo...
+
+------------------------------------------
+
+Catalog contains 6 built-in CRUD procedures.
+	Simple insert, update, delete, upsert and select procedures are created
+	automatically for convenience.
+
+[SP] Catalog contains 1 single partition procedures.
+	Single partition procedures run in parallel and scale
+	as partitions are added to a cluster.
+
+[MP] Catalog contains 3 multi-partition procedures.
+	Multi-partition procedures run globally at all partitions
+	and do not run in parallel with other procedures.
+
+[TABLE SCAN] Catalog contains 2 procedures that use a table scan:
+
+		reviewer.procedures.Results
+		ReviewsForBook
+
+	Table scans do not use indexes and may become slower as tables grow.
+
+------------------------------------------
+
+Full catalog report can be found at file:///home/sandeep/projects/data_access/voltdb_benchmark/catalog-report.html
+	 or can be viewed at "http://localhost:8080" when the server is running.
+
+------------------------------------------
+
+Starting the VoltDB server.
+To perform this action manually, use the command line: 
+
+/home/sandeep/tools/voltdb/bin/voltdb create -d deployment.xml -l /home/sandeep/tools/voltdb/voltdb/license.xml -H localhost voltdb_benchmark.jar
+

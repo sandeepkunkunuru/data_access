@@ -1,0 +1,5 @@
+SQL: INSERT INTO reviews (email, review, book_id) VALUES (?, ?, ?);
+PLAN:
+INSERT into "REVIEWS"
+ MATERIALIZE TUPLE from parameters and/or literals
+

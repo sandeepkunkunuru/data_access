@@ -1,0 +1,12 @@
+SQL: SELECT COUNT(*) as num_reviews  FROM reviews, books  where reviews.book_id = books.book_id and books.book_name = ?;
+PLAN:
+RETURN RESULTS TO STORED PROCEDURE
+ Serial AGGREGATION ops: SUM(VOLT_TEMP_TABLE.column#0)
+  RECEIVE FROM ALL PARTITIONS
+   SEND PARTITION RESULTS TO COORDINATOR
+    NESTLOOP INDEX INNER JOIN
+     inline Serial AGGREGATION ops: COUNT(
+     inline INDEX SCAN of "BOOKS" using its primary key index
+      uniquely match (BOOK_ID = REVIEWS.BOOK_ID), filter by (BOOK_NAME = ?0)
+     SEQUENTIAL SCAN of "REVIEWS"
+

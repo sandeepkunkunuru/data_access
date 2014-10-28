@@ -1,0 +1,184 @@
+$ sqlcmd
+Connection refused
+$ ./run.sh -m server -c start
+$ ./run.sh -m client 
+###############
+Setup
+###############
+#######
+# Client
+#######
+/home/sandeep/projects/data_access/shell/benchmark.sh: line 21: srccompile: command not found
+--------------------------------------------------------------------------------
+ Command Line Configuration
+--------------------------------------------------------------------------------
+
+books = 6
+displayinterval = 5
+duration = 120
+latencyreport = true
+maxreviews = 2
+password = 
+ratelimit = 2147483647
+servers = localhost:21212
+statsfile = Results.csv
+threads = 40
+user = 
+warmup = 5
+
+NOTICE: Option latencyreport is ON for async run, please set a reasonable ratelimit.
+
+--------------------------------------------------------------------------------
+ Setup & Initialization
+--------------------------------------------------------------------------------
+
+Connecting to VoltDB...
+Connected to VoltDB node at: localhost:21212.
+
+Populating Static Tables
+
+--------------------------------------------------------------------------------
+ Starting Benchmark
+--------------------------------------------------------------------------------
+
+Warming up...
+
+Running benchmark...
+00:00:05 Throughput 64912/s, Aborts/Failures 0/0, Avg/95% Latency 40.91/58.62ms
+00:00:10 Throughput 64780/s, Aborts/Failures 0/0, Avg/95% Latency 41.58/59.39ms
+00:00:15 Throughput 63080/s, Aborts/Failures 0/0, Avg/95% Latency 42.87/60.93ms
+00:00:20 Throughput 55531/s, Aborts/Failures 0/0, Avg/95% Latency 49.32/83.46ms
+00:00:25 Throughput 61828/s, Aborts/Failures 0/0, Avg/95% Latency 43.96/61.70ms
+00:00:30 Throughput 59291/s, Aborts/Failures 0/0, Avg/95% Latency 46.09/65.54ms
+00:00:35 Throughput 61204/s, Aborts/Failures 0/0, Avg/95% Latency 44.67/63.49ms
+00:00:40 Throughput 60726/s, Aborts/Failures 0/0, Avg/95% Latency 45.24/63.23ms
+00:00:45 Throughput 60086/s, Aborts/Failures 0/0, Avg/95% Latency 45.84/65.02ms
+00:00:50 Throughput 57315/s, Aborts/Failures 0/0, Avg/95% Latency 47.38/68.61ms
+00:00:55 Throughput 58816/s, Aborts/Failures 0/0, Avg/95% Latency 47.25/66.05ms
+00:01:00 Throughput 56959/s, Aborts/Failures 0/0, Avg/95% Latency 47.37/68.10ms
+00:01:05 Throughput 51387/s, Aborts/Failures 0/0, Avg/95% Latency 53.97/94.21ms
+00:01:10 Throughput 58633/s, Aborts/Failures 0/0, Avg/95% Latency 47.31/66.05ms
+00:01:15 Throughput 56181/s, Aborts/Failures 0/0, Avg/95% Latency 49.82/73.73ms
+00:01:20 Throughput 55945/s, Aborts/Failures 0/0, Avg/95% Latency 49.27/71.68ms
+00:01:25 Throughput 55068/s, Aborts/Failures 0/0, Avg/95% Latency 49.94/69.63ms
+00:01:30 Throughput 56917/s, Aborts/Failures 0/0, Avg/95% Latency 48.55/69.12ms
+00:01:35 Throughput 53833/s, Aborts/Failures 0/0, Avg/95% Latency 51.28/77.82ms
+00:01:40 Throughput 49866/s, Aborts/Failures 0/0, Avg/95% Latency 55.32/86.53ms
+00:01:45 Throughput 55723/s, Aborts/Failures 0/0, Avg/95% Latency 49.58/71.17ms
+00:01:50 Throughput 55114/s, Aborts/Failures 0/0, Avg/95% Latency 50.02/70.66ms
+00:01:55 Throughput 51219/s, Aborts/Failures 0/0, Avg/95% Latency 53.55/76.29ms
+
+--------------------------------------------------------------------------------
+ Results
+--------------------------------------------------------------------------------
+
+A total of 6900666 reviews were received...
+ - 6,829,928 Accepted
+ -    68,889 Rejected (Invalid Book)
+ -         0 Rejected (Maximum Review Count Reached)
+ -         0 Failed (Transaction Error)
+
+Book Name		Reviews Received
+We The People		     1,173,184
+Autobiography of Swamy Vivekananda		     1,172,575
+Autbiography of a Yogi		     1,172,362
+Fountain Head		     1,172,049
+My Experiments with Truth		     1,172,001
+Atlas Shrugged		     1,171,478
+
+The Winner is: We The People
+
+--------------------------------------------------------------------------------
+ Client Workload Statistics
+--------------------------------------------------------------------------------
+
+Average throughput:               57,480 txns/sec
+Average latency:                   47.69 ms
+10th percentile latency:           30.21 ms
+25th percentile latency:           35.84 ms
+50th percentile latency:           47.36 ms
+75th percentile latency:           57.86 ms
+90th percentile latency:           65.02 ms
+95th percentile latency:           69.63 ms
+99th percentile latency:           85.50 ms
+99.5th percentile latency:         94.72 ms
+99.9th percentile latency:        120.32 ms
+
+--------------------------------------------------------------------------------
+ System Server Statistics
+--------------------------------------------------------------------------------
+
+Reported Internal Avg Latency:     16.00 ms
+
+--------------------------------------------------------------------------------
+ Latency Histogram
+--------------------------------------------------------------------------------
+
+       Value     Percentile TotalCount
+
+        0.10 0.000000000000          1
+       47.62 0.500000000000    3461680
+       58.11 0.750000000000    1756240
+       63.74 0.875000000000     846327
+       68.61 0.937500000000     420177
+       73.73 0.968750000000     202185
+       80.38 0.984375000000     109969
+       89.60 0.992187500000      51228
+       98.82 0.996093750000      26243
+      109.57 0.998046875000      13167
+      121.34 0.999023437500       6750
+      140.29 0.999511718750       3341
+      156.67 0.999755859375       1802
+      172.03 0.999877929688        764
+      183.30 0.999938964844        393
+      196.61 0.999969482422        205
+      204.80 0.999984741211         99
+      207.87 0.999992370605         83
+      207.87 0.999996185303          0
+      207.87 0.999998092651          0
+      208.90 0.999999046326         11
+      208.90 0.999999523163          0
+      208.90 0.999999761581          0
+      209.92 0.999999880791          1
+      209.92 1.000000000000
+#[Mean    =        47.69, StdDeviation   =        14.54]
+#[Max     =       208.90, Total count    =      6900666]
+#[Buckets =           12, SubBuckets     =          256]
+
+SQL Command :: localhost:21212
+1> show tables;
+
+--- User Tables --------------------------------------------
+BOOKS
+REVIEWS
+
+
+--- User Views --------------------------------------------
+V_REVIEWS_BY_EMAIL
+
+
+--- User Export Streams --------------------------------------------
+
+
+2> select count(1) from books;
+C1 
+---
+  6
+
+
+
+(Returned 1 rows in 0.12s)
+3> select count(1) from reviews;
+C1      
+--------
+ 7389847
+
+
+
+(Returned 1 rows in 0.19s)
+4> exit;
+
+$ ./run.sh -m server -c stop
+$ sqlcmd
+Connection refused
+

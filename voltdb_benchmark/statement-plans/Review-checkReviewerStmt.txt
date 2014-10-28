@@ -1,0 +1,6 @@
+SQL: SELECT num_reviews FROM v_reviews_by_email WHERE email = ?;
+PLAN:
+RETURN RESULTS TO STORED PROCEDURE
+ INDEX SCAN of "V_REVIEWS_BY_EMAIL" using its primary key index
+  uniquely match (EMAIL = ?0)
+
