@@ -14,7 +14,7 @@ echo "###############"
 export USER=sandeep
 export PROJECT_HOME=/home/$USER/projects/data_access
 export SHELL_HOME=$PROJECT_HOME/shell
-export APPNAME=voltdb_benchmark
+export APPNAME="$3"
 
 # Setup Environment Variables
 source $SHELL_HOME/env.sh
@@ -46,9 +46,14 @@ else
         echo "#######"
         echo "# Client"
         echo "#######"
-        # Run benchmark
-        source $SHELL_HOME/benchmark.sh
-        client;
+
+        if [ "$3" == "voltdb_benchmark" ]; then
+            source $SHELL_HOME/benchmark.sh
+            # Run benchmark
+            client;
+        else
+            source $SHELL_HOME/utilities.sh
+        fi
 
         $VOLTDB_SQLCMD --debug
     fi

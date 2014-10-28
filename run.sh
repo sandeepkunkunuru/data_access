@@ -1,10 +1,11 @@
 #!/bin/bash
 
-usage() { echo "Usage: $0 [-m <server|client>] [-c <start|stop|async-benchmark|sync-benchmark|jdbc-benchmark>]" 1>&2; exit 1; }
+usage() { echo "Usage: $0 [-m <server|client>] [-c <voltdb_benchmark|voltdb_utilities>] [-a <voltdb_benchmark|voltdb_utilities>]" 1>&2; exit 1; }
 
 # setting default values
 m="client";
-c="async-benchmark";
+c="start";
+a="voltdb_benchmark";
 
 while getopts ":m:c:" o; do
     case "${o}" in
@@ -14,7 +15,11 @@ while getopts ":m:c:" o; do
             ;;
         c)
             c=${OPTARG}
-            ((c == "start" || c == "stop" || c == "async-benchmark" || c == "sync-benchmark" || c == "jdbc-benchmark")) || usage
+            ((c == "start" || c == "stop" )) || usage
+            ;;
+        a)
+            a=${OPTARG}
+            ((a == "voltdb_benchmark" || a == "voltdb_utilities" )) || usage
             ;;
         *)
             usage
@@ -23,8 +28,8 @@ while getopts ":m:c:" o; do
 done
 
 if [ "${m}" == "client" ]; then
-    /bin/bash ./shell/data_access.sh ${m} ${c}
+    /bin/bash ./shell/data_access.sh ${m} ${c} ${a}
 else
-    /bin/bash ./shell/data_access.sh ${m} ${c}  >& results-${c}.log
+    /bin/bash ./shell/data_access.sh ${m} ${c} ${a} >& results-${c}.log
 fi
 

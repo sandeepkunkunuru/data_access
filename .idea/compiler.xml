@@ -28,6 +28,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="voltdb_benchmark" target="1.7" />
+      <module name="voltdb_utilities" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>
