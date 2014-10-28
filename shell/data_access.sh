@@ -6,7 +6,7 @@
 #           and extract contents to say /home/sandeep/tools/voltdb
 #       Download Maven - apache-maven-3.2.3-bin.tar.gz - ftp://mirror.reverse.net/pub/apache/maven/maven-3/3.2.3/binaries/apache-maven-3.2.3-bin.tar.gz
 #           and extract contents to say /home/sandeep/tools/maven
-#       Install VoltDB client jar into local maven repository - http://dheerajvoltdb.wordpress.com/2013/09/03/installing-voltdb-in-local-maven-repository/
+#       Install VoltDB client jar into local maven repository - http://blog.tingri.me/?p=254
 echo "###############"
 echo "Setup"
 echo "###############"
@@ -18,16 +18,17 @@ export APPNAME=voltdb_benchmark
 
 # Setup Environment Variables
 source $SHELL_HOME/env.sh
+# Add common functions
+source $SHELL_HOME/common_functions.sh
 
-# Move to Project home
-cd $VOLTDB_HOME
+# Move to Module home
+cd $PROJECT_HOME/$APPNAME
 
 if [ "$1" == "server" ]; then
     if [ "$2" == "start" ]; then
         echo "###############"
         echo "# Start VoltDB server"
         echo "###############"
-        cd $PROJECT_HOME/$APPNAME
         source $SHELL_HOME/start.sh
         clean;
         server;
@@ -38,13 +39,14 @@ if [ "$1" == "server" ]; then
         echo "########################"
         source $SHELL_HOME/stop.sh
         stop;
+        clean;
     fi
 else
     if [ "$1" == "client" ]; then
         echo "#######"
         echo "# Client"
         echo "#######"
-        # Setup Environment Variables
+        # Run benchmark
         source $SHELL_HOME/benchmark.sh
         client;
 

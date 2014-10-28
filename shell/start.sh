@@ -1,15 +1,5 @@
 #!/bin/bash
 
-# remove build artifacts
-function clean() {
-    rm -rf target debugoutput $APPNAME.jar voltdbroot statement-plans log
-}
-
-# compile the source code for procedures and the client
-function srccompile() {
-    mvn clean compile
-    if [ $? != 0 ]; then exit; fi
-}
 
 # build an application catalog
 function catalog() {

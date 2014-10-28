@@ -1,5 +1,2 @@
 # Created by .gitignore support plugin (hsz.mobi)
 nohup.out
-/voltdb_benchmark/target
-/voltdb_benchmark/log
-voltdb_utilities/target

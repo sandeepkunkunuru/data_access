@@ -1,5 +1,0 @@
-SQL: UPSERT INTO BOOKS VALUES (?, ?);
-PLAN:
-UPSERT into "BOOKS"
- MATERIALIZE TUPLE from parameters and/or literals
-

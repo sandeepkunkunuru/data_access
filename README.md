@@ -1,4 +1,4 @@
-Data Access Layer for big data - In memory databases
+Data access layer for big data - In memory databases
 =====================================================
 
 Scope
@@ -29,8 +29,10 @@ books given by reviewers identified by unique email ids.
 - Results - Selects the top book based on number of reviews
 - ReviewsForBook - Gives the count of reviews for a given book. Implemented using an inline query
 
-
 References
 ----------
 - Download VoltDB Community Edition  - http://downloads.voltdb.com/technologies/server/LINUX-voltdb-4.8.tar.gz
+- Maven Download - ftp://mirror.reverse.net/pub/apache/maven/maven-3/3.2.3/binaries/apache-maven-3.2.3-bin.tar.gz
+- Install VoltDB client jar into local maven repository - http://blog.tingri.me/?p=254
 - Voltdb Voter sample application - https://github.com/VoltDB/voltdb/tree/master/examples/voter
+

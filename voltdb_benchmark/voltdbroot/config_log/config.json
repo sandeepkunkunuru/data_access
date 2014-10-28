@@ -1,8 +1,0 @@
-{
-    "log4jDst": [{
-        "format": "'.'yyyy-MM-dd",
-        "path": "/home/sandeep/projects/data_access/voltdb_benchmark/log/volt.log"
-    }],
-    "pid": 9413,
-    "workingDir": "/home/sandeep/projects/data_access/voltdb_benchmark"
-}

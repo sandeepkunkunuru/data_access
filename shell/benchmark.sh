@@ -11,7 +11,7 @@ function client() {
 # Use this target for argument help
 function async-benchmark-help() {
     srccompile
-    java -classpath $CLASSES:$CLIENTCLASSPATH:$CLASSES reviewer.native_api.AsyncBenchmark --help
+    java -classpath $CLASSES:$CLIENTCLASSPATH reviewer.native_api.AsyncBenchmark --help
 }
 
 # latencyreport: default is OFF
@@ -19,7 +19,7 @@ function async-benchmark-help() {
 # Disable the comments to get latency report
 function async-benchmark() {
     srccompile
-    java -classpath $CLASSES:$CLIENTCLASSPATH:$CLASSES -Dlog4j.configuration=file://$LOG4J \
+    java -classpath $CLASSES:$CLIENTCLASSPATH -Dlog4j.configuration=file://$LOG4J \
         reviewer.native_api.AsyncBenchmark \
         --displayinterval=5 \
         --warmup=5 \
@@ -34,7 +34,7 @@ function async-benchmark() {
 
 function simple-benchmark() {
     srccompile
-    java -classpath $CLASSES:$CLIENTCLASSPATH:$CLASSES -Dlog4j.configuration=file://$LOG4J \
+    java -classpath $CLASSES:$CLIENTCLASSPATH -Dlog4j.configuration=file://$LOG4J \
         reviewer.SimpleBenchmark localhost
 }
 
@@ -42,12 +42,12 @@ function simple-benchmark() {
 # Use this target for argument help
 function sync-benchmark-help() {
     srccompile
-    java -classpath $CLASSES:$CLIENTCLASSPATH:$CLASSES reviewer.native_api.SyncBenchmark --help
+    java -classpath $CLASSES:$CLIENTCLASSPATH reviewer.native_api.SyncBenchmark --help
 }
 
 function sync-benchmark() {
     srccompile
-    java -classpath $CLASSES:$CLIENTCLASSPATH:$CLASSES -Dlog4j.configuration=file://$LOG4J \
+    java -classpath $CLASSES:$CLIENTCLASSPATH -Dlog4j.configuration=file://$LOG4J \
         reviewer.native_api.SyncBenchmark \
         --displayinterval=5 \
         --warmup=5 \
@@ -62,12 +62,12 @@ function sync-benchmark() {
 # Use this target for argument help
 function jdbc-benchmark-help() {
     srccompile
-    java -classpath $CLASSES:$CLIENTCLASSPATH:$CLASSES reviewer.jdbc.JDBCBenchmark --help
+    java -classpath $CLASSES:$CLIENTCLASSPATH reviewer.jdbc.JDBCBenchmark --help
 }
 
 function jdbc-benchmark() {
     srccompile
-    java -classpath $CLASSES:$CLIENTCLASSPATH:$CLASSES -Dlog4j.configuration=file://$LOG4J \
+    java -classpath $CLASSES:$CLIENTCLASSPATH -Dlog4j.configuration=file://$LOG4J \
         reviewer.jdbc.JDBCBenchmark \
         --displayinterval=5 \
         --duration=120 \

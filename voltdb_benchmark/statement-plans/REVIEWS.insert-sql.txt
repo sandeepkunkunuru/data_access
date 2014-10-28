@@ -1,5 +1,0 @@
-SQL: INSERT INTO REVIEWS VALUES (?, ?, ?);
-PLAN:
-INSERT into "REVIEWS"
- MATERIALIZE TUPLE from parameters and/or literals
-
