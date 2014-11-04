@@ -1,0 +1,20 @@
+Initializing VoltDB...
+
+ _    __      ____  ____  ____ 
+| |  / /___  / / /_/ __ \/ __ )
+| | / / __ \/ / __/ / / / __  |
+| |/ / /_/ / / /_/ /_/ / /_/ / 
+|___/\____/_/\__/_____/_____/
+
+--------------------------------
+
+Build: 4.8 voltdb-4.8-0-g895def8-local Community Edition
+Connecting to VoltDB cluster as the leader...
+Host id of this node is: 0
+Initializing the database. This may take a moment...
+WARN: This is not a highly available cluster. K-Safety is set to 0.
+WARN: Durability is turned off. Command logging is off.
+Server completed initialization.
+WARN: VoltDB shutdown operation requested and in progress.  Cluster will terminate shortly.
+WARN: VoltDB shutting down as requested by @Shutdown command.
+WARN: The VoltDB server will shut down due to a control-C or other JVM exit.

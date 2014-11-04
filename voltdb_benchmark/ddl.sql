@@ -32,6 +32,8 @@ AS
      FROM reviews
  GROUP BY email;
 
+IMPORT CLASS common.*;
+IMPORT CLASS util.*;
 
 -- stored procedures
 CREATE PROCEDURE FROM CLASS reviewer.procedures.Initialize;
@@ -39,6 +41,8 @@ CREATE PROCEDURE FROM CLASS reviewer.procedures.Results;
 CREATE PROCEDURE FROM CLASS reviewer.procedures.Review;
 CREATE PROCEDURE ReviewsForBook AS SELECT COUNT(*) as num_reviews  FROM reviews, books
  where reviews.book_id = books.book_id and books.book_name = ?;
+
+
 
 -- PARTITION statement is replaced by annotation within stored procedure
 -- PARTITION PROCEDURE Review ON TABLE reviews COLUMN book_id;

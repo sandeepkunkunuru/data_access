@@ -8,7 +8,7 @@ export VOLTDB_VER=4.8
 export VOLTDB_ROOT=/home/$USER/tools/voltdb
 export VOLTDB_HOME=$VOLTDB_ROOT
 
-export PATH=$JAVA_HOME/bin:$PATH
+export PATH=$JAVA_HOME/bin:$MAVEN_HOME/bin:$VOLTDB_HOME/bin:$PATH
 
 export VOLTDBQL_HOME=$PROJECT_HOME/vql
 

@@ -8,6 +8,6 @@ function clean() {
 
 # compile the source code for procedures and the client
 function srccompile() {
-    mvn clean compile
+    mvn -X clean compile
     if [ $? != 0 ]; then exit; fi
 }

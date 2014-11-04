@@ -13,3 +13,6 @@ PARTITION TABLE books ON COLUMN book_id;
 -- stored procedures
 CREATE PROCEDURE FROM CLASS procedures.GroupConcat;
 
+IMPORT CLASS util.*;
+
+

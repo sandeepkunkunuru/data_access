@@ -1,9 +1,81 @@
++ echo '###############'
 ###############
++ echo Setup
 Setup
++ echo '###############'
 ###############
++ export USER=sandeep
++ USER=sandeep
++ export PROJECT_HOME=/home/sandeep/projects/data_access
++ PROJECT_HOME=/home/sandeep/projects/data_access
++ export SHELL_HOME=/home/sandeep/projects/data_access/shell
++ SHELL_HOME=/home/sandeep/projects/data_access/shell
++ export APPNAME=voltdb_benchmark
++ APPNAME=voltdb_benchmark
++ source /home/sandeep/projects/data_access/shell/env.sh
+++ export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
+++ JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
+++ export MAVEN_HOME=/home/sandeep/tools/maven
+++ MAVEN_HOME=/home/sandeep/tools/maven
+++ export DATA_SETS_FOLDER=/home/sandeep/projects/data_access/datasets
+++ DATA_SETS_FOLDER=/home/sandeep/projects/data_access/datasets
+++ export VOLTDB_VER=4.8
+++ VOLTDB_VER=4.8
+++ export VOLTDB_ROOT=/home/sandeep/tools/voltdb
+++ VOLTDB_ROOT=/home/sandeep/tools/voltdb
+++ export VOLTDB_HOME=/home/sandeep/tools/voltdb
+++ VOLTDB_HOME=/home/sandeep/tools/voltdb
+++ export PATH=/usr/lib/jvm/java-7-openjdk-amd64/bin:/home/sandeep/tools/maven/bin:/home/sandeep/tools/voltdb/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/usr/lib/jvm/java-7-openjdk-amd64/bin:/home/sandeep/tools/maven/bin:/home/sandeep/tools/voltdb/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ export VOLTDBQL_HOME=/home/sandeep/projects/data_access/vql
+++ VOLTDBQL_HOME=/home/sandeep/projects/data_access/vql
++++ which voltdb
+++ '[' -n /home/sandeep/tools/voltdb/bin/voltdb ']'
+++++ which voltdb
++++ dirname /home/sandeep/tools/voltdb/bin/voltdb
+++ export VOLTDB_BIN=/home/sandeep/tools/voltdb/bin
+++ VOLTDB_BIN=/home/sandeep/tools/voltdb/bin
+++ '[' -d /home/sandeep/tools/voltdb/bin/../lib/voltdb ']'
++++ dirname /home/sandeep/tools/voltdb/bin
+++ export VOLTDB_BASE=/home/sandeep/tools/voltdb
+++ VOLTDB_BASE=/home/sandeep/tools/voltdb
+++ export VOLTDB_LIB=/home/sandeep/tools/voltdb/lib
+++ VOLTDB_LIB=/home/sandeep/tools/voltdb/lib
+++ export VOLTDB_VOLTDB=/home/sandeep/tools/voltdb/voltdb
+++ VOLTDB_VOLTDB=/home/sandeep/tools/voltdb/voltdb
++++ paste -sd : -
+++ export APPCLASSPATH=:/home/sandeep/tools/voltdb/voltdb/voltdb-4.8.jar:/home/sandeep/tools/voltdb/lib/avro-1.7.7.jar:/home/sandeep/tools/voltdb/lib/commons-cli-1.2.jar:/home/sandeep/tools/voltdb/lib/commons-codec-1.6.jar:/home/sandeep/tools/voltdb/lib/commons-lang3-3.0.jar:/home/sandeep/tools/voltdb/lib/commons-logging-1.1.3.jar:/home/sandeep/tools/voltdb/lib/groovy-all-2.1.7-indy.jar:/home/sandeep/tools/voltdb/lib/httpasyncclient-4.0.1.jar:/home/sandeep/tools/voltdb/lib/httpclient-4.3.2.jar:/home/sandeep/tools/voltdb/lib/httpcore-4.3.2.jar:/home/sandeep/tools/voltdb/lib/httpcore-nio-4.3.2.jar:/home/sandeep/tools/voltdb/lib/jackson-core-asl-1.9.13.jar:/home/sandeep/tools/voltdb/lib/jackson-mapper-asl-1.9.13.jar:/home/sandeep/tools/voltdb/lib/jetty-continuation-7.6.1.v20120215.jar:/home/sandeep/tools/voltdb/lib/jetty-http-7.6.1.v20120215.jar:/home/sandeep/tools/voltdb/lib/jetty-io-7.6.1.v20120215.jar:/home/sandeep/tools/voltdb/lib/jetty-server-7.6.1.v20120215.jar:/home/sandeep/tools/voltdb/lib/jetty-util-7.6.1.v20120215.jar:/home/sandeep/tools/voltdb/lib/jline-2.10.jar:/home/sandeep/tools/voltdb/lib/jna.jar:/home/sandeep/tools/voltdb/lib/jsch-0.1.51.jar:/home/sandeep/tools/voltdb/lib/kafka_2.8.0-0.8.1.jar:/home/sandeep/tools/voltdb/lib/log4j-1.2.16.jar:/home/sandeep/tools/voltdb/lib/metrics-core-2.2.0.jar:/home/sandeep/tools/voltdb/lib/protobuf-java-2.4.1.jar:/home/sandeep/tools/voltdb/lib/scala-library.jar:/home/sandeep/tools/voltdb/lib/servlet-api-2.5.jar:/home/sandeep/tools/voltdb/lib/slf4j-api-1.6.2.jar:/home/sandeep/tools/voltdb/lib/slf4j-nop-1.6.2.jar:/home/sandeep/tools/voltdb/lib/snappy-java-1.1.0.1.jar:/home/sandeep/tools/voltdb/lib/super-csv-2.1.0.jar:/home/sandeep/tools/voltdb/lib/tomcat-jdbc.jar:/home/sandeep/tools/voltdb/lib/tomcat-juli.jar:/home/sandeep/tools/voltdb/lib/zmq-2.1.11.jar
+++ APPCLASSPATH=:/home/sandeep/tools/voltdb/voltdb/voltdb-4.8.jar:/home/sandeep/tools/voltdb/lib/avro-1.7.7.jar:/home/sandeep/tools/voltdb/lib/commons-cli-1.2.jar:/home/sandeep/tools/voltdb/lib/commons-codec-1.6.jar:/home/sandeep/tools/voltdb/lib/commons-lang3-3.0.jar:/home/sandeep/tools/voltdb/lib/commons-logging-1.1.3.jar:/home/sandeep/tools/voltdb/lib/groovy-all-2.1.7-indy.jar:/home/sandeep/tools/voltdb/lib/httpasyncclient-4.0.1.jar:/home/sandeep/tools/voltdb/lib/httpclient-4.3.2.jar:/home/sandeep/tools/voltdb/lib/httpcore-4.3.2.jar:/home/sandeep/tools/voltdb/lib/httpcore-nio-4.3.2.jar:/home/sandeep/tools/voltdb/lib/jackson-core-asl-1.9.13.jar:/home/sandeep/tools/voltdb/lib/jackson-mapper-asl-1.9.13.jar:/home/sandeep/tools/voltdb/lib/jetty-continuation-7.6.1.v20120215.jar:/home/sandeep/tools/voltdb/lib/jetty-http-7.6.1.v20120215.jar:/home/sandeep/tools/voltdb/lib/jetty-io-7.6.1.v20120215.jar:/home/sandeep/tools/voltdb/lib/jetty-server-7.6.1.v20120215.jar:/home/sandeep/tools/voltdb/lib/jetty-util-7.6.1.v20120215.jar:/home/sandeep/tools/voltdb/lib/jline-2.10.jar:/home/sandeep/tools/voltdb/lib/jna.jar:/home/sandeep/tools/voltdb/lib/jsch-0.1.51.jar:/home/sandeep/tools/voltdb/lib/kafka_2.8.0-0.8.1.jar:/home/sandeep/tools/voltdb/lib/log4j-1.2.16.jar:/home/sandeep/tools/voltdb/lib/metrics-core-2.2.0.jar:/home/sandeep/tools/voltdb/lib/protobuf-java-2.4.1.jar:/home/sandeep/tools/voltdb/lib/scala-library.jar:/home/sandeep/tools/voltdb/lib/servlet-api-2.5.jar:/home/sandeep/tools/voltdb/lib/slf4j-api-1.6.2.jar:/home/sandeep/tools/voltdb/lib/slf4j-nop-1.6.2.jar:/home/sandeep/tools/voltdb/lib/snappy-java-1.1.0.1.jar:/home/sandeep/tools/voltdb/lib/super-csv-2.1.0.jar:/home/sandeep/tools/voltdb/lib/tomcat-jdbc.jar:/home/sandeep/tools/voltdb/lib/tomcat-juli.jar:/home/sandeep/tools/voltdb/lib/zmq-2.1.11.jar
++++ paste -sd : -
+++ export CLIENTCLASSPATH=:/home/sandeep/tools/voltdb/voltdb/voltdbclient-4.8.jar:/home/sandeep/tools/voltdb/lib/commons-cli-1.2.jar
+++ CLIENTCLASSPATH=:/home/sandeep/tools/voltdb/voltdb/voltdbclient-4.8.jar:/home/sandeep/tools/voltdb/lib/commons-cli-1.2.jar
+++ export VOLTDB=/home/sandeep/tools/voltdb/bin/voltdb
+++ VOLTDB=/home/sandeep/tools/voltdb/bin/voltdb
+++ export VOLTDB_ADMIN=/home/sandeep/tools/voltdb/bin/voltadmin
+++ VOLTDB_ADMIN=/home/sandeep/tools/voltdb/bin/voltadmin
+++ export VOLTDB_SQLCMD=/home/sandeep/tools/voltdb/bin/sqlcmd
+++ VOLTDB_SQLCMD=/home/sandeep/tools/voltdb/bin/sqlcmd
+++ export LOG4J=/home/sandeep/tools/voltdb/voltdb/log4j.xml
+++ LOG4J=/home/sandeep/tools/voltdb/voltdb/log4j.xml
+++ export LICENSE=/home/sandeep/tools/voltdb/voltdb/license.xml
+++ LICENSE=/home/sandeep/tools/voltdb/voltdb/license.xml
+++ export HOST=localhost
+++ HOST=localhost
++ source /home/sandeep/projects/data_access/shell/common_functions.sh
++ cd /home/sandeep/projects/data_access/voltdb_benchmark
++ '[' server == server ']'
++ '[' stop == start ']'
++ echo '########################'
 ########################
++ echo '# Stop the processes'
 # Stop the processes
++ echo '########################'
 ########################
++ source /home/sandeep/projects/data_access/shell/stop.sh
++ stop
++ /home/sandeep/tools/voltdb/bin/voltadmin shutdown
 Status: -1
 Information: Connection broken
 
++ clean
++ rm -rf target debugoutput voltdb_benchmark.jar voltdbroot statement-plans log

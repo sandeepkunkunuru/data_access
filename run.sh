@@ -1,13 +1,13 @@
 #!/bin/bash
 
-usage() { echo "Usage: $0 [-m <server|client>] [-c <voltdb_benchmark|voltdb_utilities>] [-a <voltdb_benchmark|voltdb_utilities>]" 1>&2; exit 1; }
+usage() { echo "Usage: $0 [-m <server|client>] [-c <start|stop>] [-a <voltdb_benchmark|voltdb_utilities>]" 1>&2; exit 1; }
 
 # setting default values
 m="client";
 c="start";
 a="voltdb_benchmark";
 
-while getopts ":m:c:" o; do
+while getopts ":m:c:a:" o; do
     case "${o}" in
         m)
             m=${OPTARG}
@@ -28,8 +28,8 @@ while getopts ":m:c:" o; do
 done
 
 if [ "${m}" == "client" ]; then
-    /bin/bash ./shell/data_access.sh ${m} ${c} ${a}
+    /bin/bash -ex ./shell/data_access.sh ${m} ${c} ${a}
 else
-    /bin/bash ./shell/data_access.sh ${m} ${c} ${a} >& results-${c}.log
+    /bin/bash -ex ./shell/data_access.sh ${m} ${c} ${a} >& results-${c}.log
 fi
 

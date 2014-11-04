@@ -1,37 +1,524 @@
++ echo '###############'
 ###############
++ echo Setup
 Setup
++ echo '###############'
 ###############
++ export USER=sandeep
++ USER=sandeep
++ export PROJECT_HOME=/home/sandeep/projects/data_access
++ PROJECT_HOME=/home/sandeep/projects/data_access
++ export SHELL_HOME=/home/sandeep/projects/data_access/shell
++ SHELL_HOME=/home/sandeep/projects/data_access/shell
++ export APPNAME=voltdb_benchmark
++ APPNAME=voltdb_benchmark
++ source /home/sandeep/projects/data_access/shell/env.sh
+++ export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
+++ JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
+++ export MAVEN_HOME=/home/sandeep/tools/maven
+++ MAVEN_HOME=/home/sandeep/tools/maven
+++ export DATA_SETS_FOLDER=/home/sandeep/projects/data_access/datasets
+++ DATA_SETS_FOLDER=/home/sandeep/projects/data_access/datasets
+++ export VOLTDB_VER=4.8
+++ VOLTDB_VER=4.8
+++ export VOLTDB_ROOT=/home/sandeep/tools/voltdb
+++ VOLTDB_ROOT=/home/sandeep/tools/voltdb
+++ export VOLTDB_HOME=/home/sandeep/tools/voltdb
+++ VOLTDB_HOME=/home/sandeep/tools/voltdb
+++ export PATH=/usr/lib/jvm/java-7-openjdk-amd64/bin:/home/sandeep/tools/maven/bin:/home/sandeep/tools/voltdb/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/usr/lib/jvm/java-7-openjdk-amd64/bin:/home/sandeep/tools/maven/bin:/home/sandeep/tools/voltdb/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ export VOLTDBQL_HOME=/home/sandeep/projects/data_access/vql
+++ VOLTDBQL_HOME=/home/sandeep/projects/data_access/vql
++++ which voltdb
+++ '[' -n /home/sandeep/tools/voltdb/bin/voltdb ']'
+++++ which voltdb
++++ dirname /home/sandeep/tools/voltdb/bin/voltdb
+++ export VOLTDB_BIN=/home/sandeep/tools/voltdb/bin
+++ VOLTDB_BIN=/home/sandeep/tools/voltdb/bin
+++ '[' -d /home/sandeep/tools/voltdb/bin/../lib/voltdb ']'
++++ dirname /home/sandeep/tools/voltdb/bin
+++ export VOLTDB_BASE=/home/sandeep/tools/voltdb
+++ VOLTDB_BASE=/home/sandeep/tools/voltdb
+++ export VOLTDB_LIB=/home/sandeep/tools/voltdb/lib
+++ VOLTDB_LIB=/home/sandeep/tools/voltdb/lib
+++ export VOLTDB_VOLTDB=/home/sandeep/tools/voltdb/voltdb
+++ VOLTDB_VOLTDB=/home/sandeep/tools/voltdb/voltdb
++++ paste -sd : -
+++ export APPCLASSPATH=:/home/sandeep/tools/voltdb/voltdb/voltdb-4.8.jar:/home/sandeep/tools/voltdb/lib/avro-1.7.7.jar:/home/sandeep/tools/voltdb/lib/commons-cli-1.2.jar:/home/sandeep/tools/voltdb/lib/commons-codec-1.6.jar:/home/sandeep/tools/voltdb/lib/commons-lang3-3.0.jar:/home/sandeep/tools/voltdb/lib/commons-logging-1.1.3.jar:/home/sandeep/tools/voltdb/lib/groovy-all-2.1.7-indy.jar:/home/sandeep/tools/voltdb/lib/httpasyncclient-4.0.1.jar:/home/sandeep/tools/voltdb/lib/httpclient-4.3.2.jar:/home/sandeep/tools/voltdb/lib/httpcore-4.3.2.jar:/home/sandeep/tools/voltdb/lib/httpcore-nio-4.3.2.jar:/home/sandeep/tools/voltdb/lib/jackson-core-asl-1.9.13.jar:/home/sandeep/tools/voltdb/lib/jackson-mapper-asl-1.9.13.jar:/home/sandeep/tools/voltdb/lib/jetty-continuation-7.6.1.v20120215.jar:/home/sandeep/tools/voltdb/lib/jetty-http-7.6.1.v20120215.jar:/home/sandeep/tools/voltdb/lib/jetty-io-7.6.1.v20120215.jar:/home/sandeep/tools/voltdb/lib/jetty-server-7.6.1.v20120215.jar:/home/sandeep/tools/voltdb/lib/jetty-util-7.6.1.v20120215.jar:/home/sandeep/tools/voltdb/lib/jline-2.10.jar:/home/sandeep/tools/voltdb/lib/jna.jar:/home/sandeep/tools/voltdb/lib/jsch-0.1.51.jar:/home/sandeep/tools/voltdb/lib/kafka_2.8.0-0.8.1.jar:/home/sandeep/tools/voltdb/lib/log4j-1.2.16.jar:/home/sandeep/tools/voltdb/lib/metrics-core-2.2.0.jar:/home/sandeep/tools/voltdb/lib/protobuf-java-2.4.1.jar:/home/sandeep/tools/voltdb/lib/scala-library.jar:/home/sandeep/tools/voltdb/lib/servlet-api-2.5.jar:/home/sandeep/tools/voltdb/lib/slf4j-api-1.6.2.jar:/home/sandeep/tools/voltdb/lib/slf4j-nop-1.6.2.jar:/home/sandeep/tools/voltdb/lib/snappy-java-1.1.0.1.jar:/home/sandeep/tools/voltdb/lib/super-csv-2.1.0.jar:/home/sandeep/tools/voltdb/lib/tomcat-jdbc.jar:/home/sandeep/tools/voltdb/lib/tomcat-juli.jar:/home/sandeep/tools/voltdb/lib/zmq-2.1.11.jar
+++ APPCLASSPATH=:/home/sandeep/tools/voltdb/voltdb/voltdb-4.8.jar:/home/sandeep/tools/voltdb/lib/avro-1.7.7.jar:/home/sandeep/tools/voltdb/lib/commons-cli-1.2.jar:/home/sandeep/tools/voltdb/lib/commons-codec-1.6.jar:/home/sandeep/tools/voltdb/lib/commons-lang3-3.0.jar:/home/sandeep/tools/voltdb/lib/commons-logging-1.1.3.jar:/home/sandeep/tools/voltdb/lib/groovy-all-2.1.7-indy.jar:/home/sandeep/tools/voltdb/lib/httpasyncclient-4.0.1.jar:/home/sandeep/tools/voltdb/lib/httpclient-4.3.2.jar:/home/sandeep/tools/voltdb/lib/httpcore-4.3.2.jar:/home/sandeep/tools/voltdb/lib/httpcore-nio-4.3.2.jar:/home/sandeep/tools/voltdb/lib/jackson-core-asl-1.9.13.jar:/home/sandeep/tools/voltdb/lib/jackson-mapper-asl-1.9.13.jar:/home/sandeep/tools/voltdb/lib/jetty-continuation-7.6.1.v20120215.jar:/home/sandeep/tools/voltdb/lib/jetty-http-7.6.1.v20120215.jar:/home/sandeep/tools/voltdb/lib/jetty-io-7.6.1.v20120215.jar:/home/sandeep/tools/voltdb/lib/jetty-server-7.6.1.v20120215.jar:/home/sandeep/tools/voltdb/lib/jetty-util-7.6.1.v20120215.jar:/home/sandeep/tools/voltdb/lib/jline-2.10.jar:/home/sandeep/tools/voltdb/lib/jna.jar:/home/sandeep/tools/voltdb/lib/jsch-0.1.51.jar:/home/sandeep/tools/voltdb/lib/kafka_2.8.0-0.8.1.jar:/home/sandeep/tools/voltdb/lib/log4j-1.2.16.jar:/home/sandeep/tools/voltdb/lib/metrics-core-2.2.0.jar:/home/sandeep/tools/voltdb/lib/protobuf-java-2.4.1.jar:/home/sandeep/tools/voltdb/lib/scala-library.jar:/home/sandeep/tools/voltdb/lib/servlet-api-2.5.jar:/home/sandeep/tools/voltdb/lib/slf4j-api-1.6.2.jar:/home/sandeep/tools/voltdb/lib/slf4j-nop-1.6.2.jar:/home/sandeep/tools/voltdb/lib/snappy-java-1.1.0.1.jar:/home/sandeep/tools/voltdb/lib/super-csv-2.1.0.jar:/home/sandeep/tools/voltdb/lib/tomcat-jdbc.jar:/home/sandeep/tools/voltdb/lib/tomcat-juli.jar:/home/sandeep/tools/voltdb/lib/zmq-2.1.11.jar
++++ paste -sd : -
+++ export CLIENTCLASSPATH=:/home/sandeep/tools/voltdb/voltdb/voltdbclient-4.8.jar:/home/sandeep/tools/voltdb/lib/commons-cli-1.2.jar
+++ CLIENTCLASSPATH=:/home/sandeep/tools/voltdb/voltdb/voltdbclient-4.8.jar:/home/sandeep/tools/voltdb/lib/commons-cli-1.2.jar
+++ export VOLTDB=/home/sandeep/tools/voltdb/bin/voltdb
+++ VOLTDB=/home/sandeep/tools/voltdb/bin/voltdb
+++ export VOLTDB_ADMIN=/home/sandeep/tools/voltdb/bin/voltadmin
+++ VOLTDB_ADMIN=/home/sandeep/tools/voltdb/bin/voltadmin
+++ export VOLTDB_SQLCMD=/home/sandeep/tools/voltdb/bin/sqlcmd
+++ VOLTDB_SQLCMD=/home/sandeep/tools/voltdb/bin/sqlcmd
+++ export LOG4J=/home/sandeep/tools/voltdb/voltdb/log4j.xml
+++ LOG4J=/home/sandeep/tools/voltdb/voltdb/log4j.xml
+++ export LICENSE=/home/sandeep/tools/voltdb/voltdb/license.xml
+++ LICENSE=/home/sandeep/tools/voltdb/voltdb/license.xml
+++ export HOST=localhost
+++ HOST=localhost
++ source /home/sandeep/projects/data_access/shell/common_functions.sh
++ cd /home/sandeep/projects/data_access/voltdb_benchmark
++ '[' server == server ']'
++ '[' start == start ']'
++ echo '###############'
 ###############
++ echo '# Start VoltDB server'
 # Start VoltDB server
++ echo '###############'
 ###############
++ source /home/sandeep/projects/data_access/shell/start.sh
++ clean
++ rm -rf target debugoutput voltdb_benchmark.jar voltdbroot statement-plans log
++ server
++ '[' '!' -f voltdb_benchmark.jar ']'
++ catalog
++ srccompile
++ mvn -X clean compile
+Apache Maven 3.0.5 (r01de14724cdef164cd33c7c8c2fe155faf9602da; 2013-02-19 08:51:28-0500)
+Maven home: /home/sandeep/tools/maven
+Java version: 1.7.0_65, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-openjdk-amd64/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.16.0-24-generic", arch: "amd64", family: "unix"
+[INFO] Error stacktraces are turned on.
+[DEBUG] Reading global settings from /home/sandeep/tools/maven/conf/settings.xml
+[DEBUG] Reading user settings from /root/.m2/settings.xml
+[DEBUG] Using local repository at /root/.m2/repository
+[DEBUG] Using manager EnhancedLocalRepositoryManager with priority 10 for /root/.m2/repository
 [INFO] Scanning for projects...
+[DEBUG] Extension realms for project me.tingri:voltdb_benchmark:jar:1.0-SNAPSHOT: (none)
+[DEBUG] Looking up lifecyle mappings for packaging jar from ClassRealm[plexus.core, parent: null]
+[DEBUG] === REACTOR BUILD PLAN ================================================
+[DEBUG] Project: me.tingri:voltdb_benchmark:jar:1.0-SNAPSHOT
+[DEBUG] Tasks:   [clean, compile]
+[DEBUG] Style:   Regular
+[DEBUG] =======================================================================
 [INFO]                                                                         
 [INFO] ------------------------------------------------------------------------
 [INFO] Building voltdb_benchmark 1.0-SNAPSHOT
 [INFO] ------------------------------------------------------------------------
+[DEBUG] Lifecycle default -> [validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy]
+[DEBUG] Lifecycle clean -> [pre-clean, clean, post-clean]
+[DEBUG] Lifecycle site -> [pre-site, site, post-site, site-deploy]
+[DEBUG] Lifecycle default -> [validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy]
+[DEBUG] Lifecycle clean -> [pre-clean, clean, post-clean]
+[DEBUG] Lifecycle site -> [pre-site, site, post-site, site-deploy]
+[DEBUG] Lifecycle default -> [validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy]
+[DEBUG] Lifecycle clean -> [pre-clean, clean, post-clean]
+[DEBUG] Lifecycle site -> [pre-site, site, post-site, site-deploy]
+[DEBUG] Lifecycle default -> [validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy]
+[DEBUG] Lifecycle clean -> [pre-clean, clean, post-clean]
+[DEBUG] Lifecycle site -> [pre-site, site, post-site, site-deploy]
+[DEBUG] Lifecycle default -> [validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy]
+[DEBUG] Lifecycle clean -> [pre-clean, clean, post-clean]
+[DEBUG] Lifecycle site -> [pre-site, site, post-site, site-deploy]
+[DEBUG] === PROJECT BUILD PLAN ================================================
+[DEBUG] Project:       me.tingri:voltdb_benchmark:1.0-SNAPSHOT
+[DEBUG] Dependencies (collect): []
+[DEBUG] Dependencies (resolve): [compile]
+[DEBUG] Repositories (dependencies): [project.local (file:/home/sandeep/.m2/repository, releases+snapshots), central (http://repo.maven.apache.org/maven2, releases)]
+[DEBUG] Repositories (plugins)     : [central (http://repo.maven.apache.org/maven2, releases)]
+[DEBUG] -----------------------------------------------------------------------
+[DEBUG] Goal:          org.apache.maven.plugins:maven-clean-plugin:2.4.1:clean (default-clean)
+[DEBUG] Style:         Regular
+[DEBUG] Configuration: <?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <directory default-value="${project.build.directory}"/>
+  <excludeDefaultDirectories default-value="false">${clean.excludeDefaultDirectories}</excludeDefaultDirectories>
+  <failOnError default-value="true">${maven.clean.failOnError}</failOnError>
+  <followSymLinks default-value="false">${clean.followSymLinks}</followSymLinks>
+  <outputDirectory default-value="${project.build.outputDirectory}"/>
+  <reportDirectory default-value="${project.reporting.outputDirectory}"/>
+  <skip default-value="false">${clean.skip}</skip>
+  <testOutputDirectory default-value="${project.build.testOutputDirectory}"/>
+  <verbose>${clean.verbose}</verbose>
+</configuration>
+[DEBUG] -----------------------------------------------------------------------
+[DEBUG] Goal:          org.apache.maven.plugins:maven-resources-plugin:2.5:resources (default-resources)
+[DEBUG] Style:         Regular
+[DEBUG] Configuration: <?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <buildFilters default-value="${project.build.filters}"/>
+  <encoding default-value="${project.build.sourceEncoding}">${encoding}</encoding>
+  <escapeString>${maven.resources.escapeString}</escapeString>
+  <escapeWindowsPaths default-value="true">${maven.resources.escapeWindowsPaths}</escapeWindowsPaths>
+  <includeEmptyDirs default-value="false">${maven.resources.includeEmptyDirs}</includeEmptyDirs>
+  <outputDirectory default-value="${project.build.outputDirectory}"/>
+  <overwrite default-value="false">${maven.resources.overwrite}</overwrite>
+  <project default-value="${project}"/>
+  <resources default-value="${project.resources}"/>
+  <session default-value="${session}"/>
+  <supportMultiLineFiltering default-value="false">${maven.resources.supportMultiLineFiltering}</supportMultiLineFiltering>
+  <useBuildFilters default-value="true"/>
+  <useDefaultDelimiters default-value="true"/>
+</configuration>
+[DEBUG] -----------------------------------------------------------------------
+[DEBUG] Goal:          org.apache.maven.plugins:maven-compiler-plugin:3.1:compile (default-compile)
+[DEBUG] Style:         Regular
+[DEBUG] Configuration: <?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <basedir default-value="${basedir}"/>
+  <buildDirectory default-value="${project.build.directory}"/>
+  <classpathElements default-value="${project.compileClasspathElements}"/>
+  <compileSourceRoots default-value="${project.compileSourceRoots}"/>
+  <compilerId default-value="javac">${maven.compiler.compilerId}</compilerId>
+  <compilerReuseStrategy default-value="${reuseCreated}">${maven.compiler.compilerReuseStrategy}</compilerReuseStrategy>
+  <compilerVersion>${maven.compiler.compilerVersion}</compilerVersion>
+  <debug default-value="true">${maven.compiler.debug}</debug>
+  <debuglevel>${maven.compiler.debuglevel}</debuglevel>
+  <encoding default-value="${project.build.sourceEncoding}">${encoding}</encoding>
+  <executable>${maven.compiler.executable}</executable>
+  <failOnError default-value="true">${maven.compiler.failOnError}</failOnError>
+  <forceJavacCompilerUse default-value="false">${maven.compiler.forceJavacCompilerUse}</forceJavacCompilerUse>
+  <fork default-value="false">${maven.compiler.fork}</fork>
+  <generatedSourcesDirectory default-value="${project.build.directory}/generated-sources/annotations"/>
+  <maxmem>${maven.compiler.maxmem}</maxmem>
+  <meminitial>${maven.compiler.meminitial}</meminitial>
+  <mojoExecution>${mojoExecution}</mojoExecution>
+  <optimize default-value="false">${maven.compiler.optimize}</optimize>
+  <outputDirectory default-value="${project.build.outputDirectory}"/>
+  <projectArtifact default-value="${project.artifact}"/>
+  <showDeprecation default-value="false">${maven.compiler.showDeprecation}</showDeprecation>
+  <showWarnings default-value="false">${maven.compiler.showWarnings}</showWarnings>
+  <skipMain>${maven.main.skip}</skipMain>
+  <skipMultiThreadWarning default-value="false">${maven.compiler.skipMultiThreadWarning}</skipMultiThreadWarning>
+  <source default-value="1.5">1.7</source>
+  <staleMillis default-value="0">${lastModGranularityMs}</staleMillis>
+  <target default-value="1.5">1.7</target>
+  <useIncrementalCompilation default-value="true">${maven.compiler.useIncrementalCompilation}</useIncrementalCompilation>
+  <verbose default-value="false">${maven.compiler.verbose}</verbose>
+  <mavenSession default-value="${session}"/>
+  <session default-value="${session}"/>
+</configuration>
+[DEBUG] =======================================================================
+[DEBUG] me.tingri:voltdb_benchmark:jar:1.0-SNAPSHOT
+[DEBUG]    org.voltdb:voltdb-client:jar:4.4:compile
+[DEBUG]    org.voltdb:voltdb:jar:4.4:compile
 [INFO] 
 [INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ voltdb_benchmark ---
+[DEBUG] Created new class realm maven.api
+[DEBUG] Importing foreign packages into class realm maven.api
+[DEBUG]   Imported: org.apache.maven.wagon.events < plexus.core
+[DEBUG]   Imported: org.sonatype.aether.transfer < plexus.core
+[DEBUG]   Imported: org.apache.maven.exception < plexus.core
+[DEBUG]   Imported: org.sonatype.aether.metadata < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.Xpp3Dom < plexus.core
+[DEBUG]   Imported: org.sonatype.aether.collection < plexus.core
+[DEBUG]   Imported: org.sonatype.aether.version < plexus.core
+[DEBUG]   Imported: org.apache.maven.monitor < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.repository < plexus.core
+[DEBUG]   Imported: org.apache.maven.repository < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.resource < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.logging < plexus.core
+[DEBUG]   Imported: org.apache.maven.profiles < plexus.core
+[DEBUG]   Imported: org.sonatype.aether.repository < plexus.core
+[DEBUG]   Imported: org.apache.maven.classrealm < plexus.core
+[DEBUG]   Imported: org.apache.maven.execution < plexus.core
+[DEBUG]   Imported: org.sonatype.aether.artifact < plexus.core
+[DEBUG]   Imported: org.sonatype.aether.spi < plexus.core
+[DEBUG]   Imported: org.apache.maven.reporting < plexus.core
+[DEBUG]   Imported: org.apache.maven.usability < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.container < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.component < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.pull.XmlSerializer < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.authentication < plexus.core
+[DEBUG]   Imported: org.apache.maven.lifecycle < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.classworlds < plexus.core
+[DEBUG]   Imported: org.sonatype.aether.graph < plexus.core
+[DEBUG]   Imported: org.sonatype.aether.* < plexus.core
+[DEBUG]   Imported: org.apache.maven.settings < plexus.core
+[DEBUG]   Imported: org.codehaus.classworlds < plexus.core
+[DEBUG]   Imported: org.sonatype.aether.impl < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.* < plexus.core
+[DEBUG]   Imported: org.apache.maven.toolchain < plexus.core
+[DEBUG]   Imported: org.sonatype.aether.deployment < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.observers < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.pull.XmlPullParserException < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.pull.XmlPullParser < plexus.core
+[DEBUG]   Imported: org.apache.maven.configuration < plexus.core
+[DEBUG]   Imported: org.apache.maven.cli < plexus.core
+[DEBUG]   Imported: org.sonatype.aether.installation < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.context < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.authorization < plexus.core
+[DEBUG]   Imported: org.apache.maven.project < plexus.core
+[DEBUG]   Imported: org.apache.maven.rtinfo < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.lifecycle < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.configuration < plexus.core
+[DEBUG]   Imported: org.apache.maven.artifact < plexus.core
+[DEBUG]   Imported: org.apache.maven.model < plexus.core
+[DEBUG]   Imported: org.apache.maven.* < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.proxy < plexus.core
+[DEBUG]   Imported: org.sonatype.aether.resolution < plexus.core
+[DEBUG]   Imported: org.apache.maven.plugin < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.* < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.personality < plexus.core
+[DEBUG] Populating class realm maven.api
+[DEBUG] org.apache.maven.plugins:maven-clean-plugin:jar:2.4.1:
+[DEBUG]    org.apache.maven:maven-plugin-api:jar:2.0.6:compile
+[DEBUG]    org.codehaus.plexus:plexus-utils:jar:2.0.5:compile
+[DEBUG] Created new class realm plugin>org.apache.maven.plugins:maven-clean-plugin:2.4.1
+[DEBUG] Importing foreign packages into class realm plugin>org.apache.maven.plugins:maven-clean-plugin:2.4.1
+[DEBUG]   Imported:  < maven.api
+[DEBUG] Populating class realm plugin>org.apache.maven.plugins:maven-clean-plugin:2.4.1
+[DEBUG]   Included: org.apache.maven.plugins:maven-clean-plugin:jar:2.4.1
+[DEBUG]   Included: org.codehaus.plexus:plexus-utils:jar:2.0.5
+[DEBUG]   Excluded: org.apache.maven:maven-plugin-api:jar:2.0.6
+[DEBUG] Configuring mojo org.apache.maven.plugins:maven-clean-plugin:2.4.1:clean from plugin realm ClassRealm[plugin>org.apache.maven.plugins:maven-clean-plugin:2.4.1, parent: sun.misc.Launcher$AppClassLoader@5f2e712f]
+[DEBUG] Configuring mojo 'org.apache.maven.plugins:maven-clean-plugin:2.4.1:clean' with basic configurator -->
+[DEBUG]   (f) directory = /home/sandeep/projects/data_access/voltdb_benchmark/target
+[DEBUG]   (f) excludeDefaultDirectories = false
+[DEBUG]   (f) failOnError = true
+[DEBUG]   (f) followSymLinks = false
+[DEBUG]   (f) outputDirectory = /home/sandeep/projects/data_access/voltdb_benchmark/target/classes
+[DEBUG]   (f) reportDirectory = /home/sandeep/projects/data_access/voltdb_benchmark/target/site
+[DEBUG]   (f) skip = false
+[DEBUG]   (f) testOutputDirectory = /home/sandeep/projects/data_access/voltdb_benchmark/target/test-classes
+[DEBUG] -- end configuration --
+[DEBUG] Skipping non-existing directory /home/sandeep/projects/data_access/voltdb_benchmark/target
+[DEBUG] Skipping non-existing directory /home/sandeep/projects/data_access/voltdb_benchmark/target/classes
+[DEBUG] Skipping non-existing directory /home/sandeep/projects/data_access/voltdb_benchmark/target/test-classes
+[DEBUG] Skipping non-existing directory /home/sandeep/projects/data_access/voltdb_benchmark/target/site
 [INFO] 
 [INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ voltdb_benchmark ---
+[DEBUG] org.apache.maven.plugins:maven-resources-plugin:jar:2.5:
+[DEBUG]    org.apache.maven:maven-plugin-api:jar:2.0.6:compile
+[DEBUG]    org.apache.maven:maven-project:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-profile:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-artifact-manager:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-plugin-registry:jar:2.0.6:compile
+[DEBUG]    org.apache.maven:maven-core:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-plugin-parameter-documenter:jar:2.0.6:compile
+[DEBUG]       org.apache.maven.reporting:maven-reporting-api:jar:2.0.6:compile
+[DEBUG]          org.apache.maven.doxia:doxia-sink-api:jar:1.0-alpha-7:compile
+[DEBUG]       org.apache.maven:maven-repository-metadata:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-error-diagnostics:jar:2.0.6:compile
+[DEBUG]       commons-cli:commons-cli:jar:1.0:compile
+[DEBUG]       org.apache.maven:maven-plugin-descriptor:jar:2.0.6:compile
+[DEBUG]       org.codehaus.plexus:plexus-interactivity-api:jar:1.0-alpha-4:compile
+[DEBUG]       classworlds:classworlds:jar:1.1:compile
+[DEBUG]    org.apache.maven:maven-artifact:jar:2.0.6:compile
+[DEBUG]    org.apache.maven:maven-settings:jar:2.0.6:compile
+[DEBUG]    org.apache.maven:maven-model:jar:2.0.6:compile
+[DEBUG]    org.apache.maven:maven-monitor:jar:2.0.6:compile
+[DEBUG]    org.codehaus.plexus:plexus-container-default:jar:1.0-alpha-9-stable-1:compile
+[DEBUG]       junit:junit:jar:3.8.1:compile
+[DEBUG]    org.codehaus.plexus:plexus-utils:jar:2.0.5:compile
+[DEBUG]    org.apache.maven.shared:maven-filtering:jar:1.0:compile
+[DEBUG]       org.sonatype.plexus:plexus-build-api:jar:0.0.4:compile
+[DEBUG]    org.codehaus.plexus:plexus-interpolation:jar:1.13:compile
+[DEBUG] Created new class realm plugin>org.apache.maven.plugins:maven-resources-plugin:2.5
+[DEBUG] Importing foreign packages into class realm plugin>org.apache.maven.plugins:maven-resources-plugin:2.5
+[DEBUG]   Imported:  < maven.api
+[DEBUG] Populating class realm plugin>org.apache.maven.plugins:maven-resources-plugin:2.5
+[DEBUG]   Included: org.apache.maven.plugins:maven-resources-plugin:jar:2.5
+[DEBUG]   Included: org.apache.maven.reporting:maven-reporting-api:jar:2.0.6
+[DEBUG]   Included: org.apache.maven.doxia:doxia-sink-api:jar:1.0-alpha-7
+[DEBUG]   Included: commons-cli:commons-cli:jar:1.0
+[DEBUG]   Included: org.codehaus.plexus:plexus-interactivity-api:jar:1.0-alpha-4
+[DEBUG]   Included: junit:junit:jar:3.8.1
+[DEBUG]   Included: org.codehaus.plexus:plexus-utils:jar:2.0.5
+[DEBUG]   Included: org.apache.maven.shared:maven-filtering:jar:1.0
+[DEBUG]   Included: org.sonatype.plexus:plexus-build-api:jar:0.0.4
+[DEBUG]   Included: org.codehaus.plexus:plexus-interpolation:jar:1.13
+[DEBUG]   Excluded: org.apache.maven:maven-plugin-api:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-project:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-profile:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-artifact-manager:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-plugin-registry:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-core:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-plugin-parameter-documenter:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-repository-metadata:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-error-diagnostics:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-plugin-descriptor:jar:2.0.6
+[DEBUG]   Excluded: classworlds:classworlds:jar:1.1
+[DEBUG]   Excluded: org.apache.maven:maven-artifact:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-settings:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-model:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-monitor:jar:2.0.6
+[DEBUG]   Excluded: org.codehaus.plexus:plexus-container-default:jar:1.0-alpha-9-stable-1
+[DEBUG] Configuring mojo org.apache.maven.plugins:maven-resources-plugin:2.5:resources from plugin realm ClassRealm[plugin>org.apache.maven.plugins:maven-resources-plugin:2.5, parent: sun.misc.Launcher$AppClassLoader@5f2e712f]
 [debug] execute contextualize
+[DEBUG] Configuring mojo 'org.apache.maven.plugins:maven-resources-plugin:2.5:resources' with basic configurator -->
+[DEBUG]   (f) buildFilters = []
+[DEBUG]   (f) encoding = UTF-8
+[DEBUG]   (f) escapeWindowsPaths = true
+[DEBUG]   (s) includeEmptyDirs = false
+[DEBUG]   (s) outputDirectory = /home/sandeep/projects/data_access/voltdb_benchmark/target/classes
+[DEBUG]   (s) overwrite = false
+[DEBUG]   (f) project = MavenProject: me.tingri:voltdb_benchmark:1.0-SNAPSHOT @ /home/sandeep/projects/data_access/voltdb_benchmark/pom.xml
+[DEBUG]   (s) resources = [Resource {targetPath: null, filtering: false, FileSet {directory: /home/sandeep/projects/data_access/voltdb_benchmark/src/main/resources, PatternSet [includes: {}, excludes: {}]}}]
+[DEBUG]   (f) session = org.apache.maven.execution.MavenSession@25443877
+[DEBUG]   (f) supportMultiLineFiltering = false
+[DEBUG]   (f) useBuildFilters = true
+[DEBUG]   (s) useDefaultDelimiters = true
+[DEBUG] -- end configuration --
+[DEBUG] properties used {java.vendor=Oracle Corporation, sun.java.launcher=SUN_STANDARD, sun.management.compiler=HotSpot 64-Bit Tiered Compilers, env.SUDO_COMMAND=./run.sh -m server -c start -a voltdb_benchmark, os.name=Linux, sun.boot.class.path=/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/resources.jar:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/jsse.jar:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/jce.jar:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/charsets.jar:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/rhino.jar:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/jfr.jar:/usr/lib/jvm/java-7-openjdk-amd64/jre/classes, env.PWD=/home/sandeep/projects/data_access/voltdb_benchmark, env.LANG=en_US.UTF-8, java.vm.specification.vendor=Oracle Corporation, env.VOLTDB_LIB=/home/sandeep/tools/voltdb/lib, java.runtime.version=1.7.0_65-b32, project.build.sourceEncoding=UTF-8, env.DISPLAY=:0, user.name=root, env._=/home/sandeep/tools/maven/bin/mvn, maven.build.version=Apache Maven 3.0.5 (r01de14724cdef164cd33c7c8c2fe155faf9602da; 2013-02-19 08:51:28-0500), env.VOLTDB_ROOT=/home/sandeep/tools/voltdb, env.USER=sandeep, env.SHELL=/bin/bash, env.VOLTDB_VOLTDB=/home/sandeep/tools/voltdb/voltdb, env.PATH=/usr/lib/jvm/java-7-openjdk-amd64/bin:/home/sandeep/tools/maven/bin:/home/sandeep/tools/voltdb/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin, user.language=en, sun.boot.library.path=/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64, classworlds.conf=/home/sandeep/tools/maven/bin/m2.conf, java.version=1.7.0_65, user.timezone=America/New_York, env.VOLTDB=/home/sandeep/tools/voltdb/bin/voltdb, sun.arch.data.model=64, env.VOLTDB_HOME=/home/sandeep/tools/voltdb, java.endorsed.dirs=/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/endorsed, sun.cpu.isalist=, sun.jnu.encoding=UTF-8, file.encoding.pkg=sun.io, env.SHLVL=2, file.separator=/, java.specification.name=Java Platform API Specification, env.VOLTDB_BIN=/home/sandeep/tools/voltdb/bin, env.VOLTDB_VER=4.8, java.class.version=51.0, user.country=US, java.home=/usr/lib/jvm/java-7-openjdk-amd64/jre, java.vm.info=mixed mode, env.LOGNAME=root, os.version=3.16.0-24-generic, env.VOLTDB_SQLCMD=/home/sandeep/tools/voltdb/bin/sqlcmd, path.separator=:, env.VOLTDB_ADMIN=/home/sandeep/tools/voltdb/bin/voltadmin, java.vm.version=24.65-b04, env.LANGUAGE=en_US, env.JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64, env.PROJECT_HOME=/home/sandeep/projects/data_access, java.awt.printerjob=sun.print.PSPrinterJob, env.TERM=xterm, sun.io.unicode.encoding=UnicodeLittle, env.SUDO_UID=1000, awt.toolkit=sun.awt.X11.XToolkit, env.LOG4J=/home/sandeep/tools/voltdb/voltdb/log4j.xml, env.APPCLASSPATH=:/home/sandeep/tools/voltdb/voltdb/voltdb-4.8.jar:/home/sandeep/tools/voltdb/lib/avro-1.7.7.jar:/home/sandeep/tools/voltdb/lib/commons-cli-1.2.jar:/home/sandeep/tools/voltdb/lib/commons-codec-1.6.jar:/home/sandeep/tools/voltdb/lib/commons-lang3-3.0.jar:/home/sandeep/tools/voltdb/lib/commons-logging-1.1.3.jar:/home/sandeep/tools/voltdb/lib/groovy-all-2.1.7-indy.jar:/home/sandeep/tools/voltdb/lib/httpasyncclient-4.0.1.jar:/home/sandeep/tools/voltdb/lib/httpclient-4.3.2.jar:/home/sandeep/tools/voltdb/lib/httpcore-4.3.2.jar:/home/sandeep/tools/voltdb/lib/httpcore-nio-4.3.2.jar:/home/sandeep/tools/voltdb/lib/jackson-core-asl-1.9.13.jar:/home/sandeep/tools/voltdb/lib/jackson-mapper-asl-1.9.13.jar:/home/sandeep/tools/voltdb/lib/jetty-continuation-7.6.1.v20120215.jar:/home/sandeep/tools/voltdb/lib/jetty-http-7.6.1.v20120215.jar:/home/sandeep/tools/voltdb/lib/jetty-io-7.6.1.v20120215.jar:/home/sandeep/tools/voltdb/lib/jetty-server-7.6.1.v20120215.jar:/home/sandeep/tools/voltdb/lib/jetty-util-7.6.1.v20120215.jar:/home/sandeep/tools/voltdb/lib/jline-2.10.jar:/home/sandeep/tools/voltdb/lib/jna.jar:/home/sandeep/tools/voltdb/lib/jsch-0.1.51.jar:/home/sandeep/tools/voltdb/lib/kafka_2.8.0-0.8.1.jar:/home/sandeep/tools/voltdb/lib/log4j-1.2.16.jar:/home/sandeep/tools/voltdb/lib/metrics-core-2.2.0.jar:/home/sandeep/tools/voltdb/lib/protobuf-java-2.4.1.jar:/home/sandeep/tools/voltdb/lib/scala-library.jar:/home/sandeep/tools/voltdb/lib/servlet-api-2.5.jar:/home/sandeep/tools/voltdb/lib/slf4j-api-1.6.2.jar:/home/sandeep/tools/voltdb/lib/slf4j-nop-1.6.2.jar:/home/sandeep/tools/voltdb/lib/snappy-java-1.1.0.1.jar:/home/sandeep/tools/voltdb/lib/super-csv-2.1.0.jar:/home/sandeep/tools/voltdb/lib/tomcat-jdbc.jar:/home/sandeep/tools/voltdb/lib/tomcat-juli.jar:/home/sandeep/tools/voltdb/lib/zmq-2.1.11.jar, endorsed.dir=/home/sandeep/projects/data_access/voltdb_benchmark/target/endorsed, user.home=/root, env.OLDPWD=/home/sandeep/projects/data_access/voltdb_benchmark, java.specification.vendor=Oracle Corporation, env.LICENSE=/home/sandeep/tools/voltdb/voltdb/license.xml, env.VOLTDBQL_HOME=/home/sandeep/projects/data_access/vql, java.library.path=/usr/java/packages/lib/amd64:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib, java.vendor.url=http://java.oracle.com/, env.VOLTDB_BASE=/home/sandeep/tools/voltdb, java.vm.vendor=Oracle Corporation, maven.home=/home/sandeep/tools/maven, java.runtime.name=OpenJDK Runtime Environment, sun.java.command=org.codehaus.plexus.classworlds.launcher.Launcher -X clean compile, java.class.path=/home/sandeep/tools/maven/boot/plexus-classworlds-2.4.jar, env.HOST=localhost, maven.version=3.0.5, java.vm.specification.name=Java Virtual Machine Specification, java.vm.specification.version=1.7, sun.cpu.endian=little, sun.os.patch.level=unknown, env.HOME=/home/sandeep, env.SHELL_HOME=/home/sandeep/projects/data_access/shell, env.LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:, java.io.tmpdir=/tmp, java.vendor.url.bug=http://bugreport.sun.com/bugreport/, env.DATA_SETS_FOLDER=/home/sandeep/projects/data_access/datasets, env.APPNAME=voltdb_benchmark, os.arch=amd64, java.awt.graphicsenv=sun.awt.X11GraphicsEnvironment, java.ext.dirs=/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/ext:/usr/java/packages/lib/ext, env.MAVEN_HOME=/home/sandeep/tools/maven, env.XAUTHORITY=/home/sandeep/.Xauthority, user.dir=/home/sandeep/projects/data_access/voltdb_benchmark, env.SUDO_USER=sandeep, line.separator=
+, java.vm.name=OpenJDK 64-Bit Server VM, env.COLORTERM=gnome-terminal, env.USERNAME=root, file.encoding=UTF-8, env.MAIL=/var/mail/root, env.CLIENTCLASSPATH=:/home/sandeep/tools/voltdb/voltdb/voltdbclient-4.8.jar:/home/sandeep/tools/voltdb/lib/commons-cli-1.2.jar, env.SUDO_GID=1000, java.specification.version=1.7}
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
+[DEBUG] resource with targetPath null
+directory /home/sandeep/projects/data_access/voltdb_benchmark/src/main/resources
+excludes []
+includes []
+[DEBUG] ignoreDelta true
 [INFO] Copying 0 resource
+[DEBUG] no use filter components
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ voltdb_benchmark ---
+[DEBUG] org.apache.maven.plugins:maven-compiler-plugin:jar:3.1:
+[DEBUG]    org.apache.maven:maven-plugin-api:jar:2.0.9:compile
+[DEBUG]    org.apache.maven:maven-artifact:jar:2.0.9:compile
+[DEBUG]       org.codehaus.plexus:plexus-utils:jar:1.5.1:compile
+[DEBUG]    org.apache.maven:maven-core:jar:2.0.9:compile
+[DEBUG]       org.apache.maven:maven-settings:jar:2.0.9:compile
+[DEBUG]       org.apache.maven:maven-plugin-parameter-documenter:jar:2.0.9:compile
+[DEBUG]       org.apache.maven:maven-profile:jar:2.0.9:compile
+[DEBUG]       org.apache.maven:maven-model:jar:2.0.9:compile
+[DEBUG]       org.apache.maven:maven-repository-metadata:jar:2.0.9:compile
+[DEBUG]       org.apache.maven:maven-error-diagnostics:jar:2.0.9:compile
+[DEBUG]       org.apache.maven:maven-project:jar:2.0.9:compile
+[DEBUG]          org.apache.maven:maven-plugin-registry:jar:2.0.9:compile
+[DEBUG]       org.apache.maven:maven-plugin-descriptor:jar:2.0.9:compile
+[DEBUG]       org.apache.maven:maven-artifact-manager:jar:2.0.9:compile
+[DEBUG]       org.apache.maven:maven-monitor:jar:2.0.9:compile
+[DEBUG]    org.apache.maven:maven-toolchain:jar:1.0:compile
+[DEBUG]    org.apache.maven.shared:maven-shared-utils:jar:0.1:compile
+[DEBUG]       com.google.code.findbugs:jsr305:jar:2.0.1:compile
+[DEBUG]    org.apache.maven.shared:maven-shared-incremental:jar:1.1:compile
+[DEBUG]       org.codehaus.plexus:plexus-component-annotations:jar:1.5.5:compile
+[DEBUG]    org.codehaus.plexus:plexus-compiler-api:jar:2.2:compile
+[DEBUG]    org.codehaus.plexus:plexus-compiler-manager:jar:2.2:compile
+[DEBUG]    org.codehaus.plexus:plexus-compiler-javac:jar:2.2:runtime
+[DEBUG]    org.codehaus.plexus:plexus-container-default:jar:1.5.5:compile
+[DEBUG]       org.codehaus.plexus:plexus-classworlds:jar:2.2.2:compile
+[DEBUG]       org.apache.xbean:xbean-reflect:jar:3.4:compile
+[DEBUG]          log4j:log4j:jar:1.2.12:compile
+[DEBUG]          commons-logging:commons-logging-api:jar:1.1:compile
+[DEBUG]       com.google.collections:google-collections:jar:1.0:compile
+[DEBUG]       junit:junit:jar:3.8.2:compile
+[DEBUG] Created new class realm plugin>org.apache.maven.plugins:maven-compiler-plugin:3.1
+[DEBUG] Importing foreign packages into class realm plugin>org.apache.maven.plugins:maven-compiler-plugin:3.1
+[DEBUG]   Imported:  < maven.api
+[DEBUG] Populating class realm plugin>org.apache.maven.plugins:maven-compiler-plugin:3.1
+[DEBUG]   Included: org.apache.maven.plugins:maven-compiler-plugin:jar:3.1
+[DEBUG]   Included: org.codehaus.plexus:plexus-utils:jar:1.5.1
+[DEBUG]   Included: org.apache.maven.shared:maven-shared-utils:jar:0.1
+[DEBUG]   Included: com.google.code.findbugs:jsr305:jar:2.0.1
+[DEBUG]   Included: org.apache.maven.shared:maven-shared-incremental:jar:1.1
+[DEBUG]   Included: org.codehaus.plexus:plexus-component-annotations:jar:1.5.5
+[DEBUG]   Included: org.codehaus.plexus:plexus-compiler-api:jar:2.2
+[DEBUG]   Included: org.codehaus.plexus:plexus-compiler-manager:jar:2.2
+[DEBUG]   Included: org.codehaus.plexus:plexus-compiler-javac:jar:2.2
+[DEBUG]   Included: org.apache.xbean:xbean-reflect:jar:3.4
+[DEBUG]   Included: log4j:log4j:jar:1.2.12
+[DEBUG]   Included: commons-logging:commons-logging-api:jar:1.1
+[DEBUG]   Included: com.google.collections:google-collections:jar:1.0
+[DEBUG]   Included: junit:junit:jar:3.8.2
+[DEBUG]   Excluded: org.apache.maven:maven-plugin-api:jar:2.0.9
+[DEBUG]   Excluded: org.apache.maven:maven-artifact:jar:2.0.9
+[DEBUG]   Excluded: org.apache.maven:maven-core:jar:2.0.9
+[DEBUG]   Excluded: org.apache.maven:maven-settings:jar:2.0.9
+[DEBUG]   Excluded: org.apache.maven:maven-plugin-parameter-documenter:jar:2.0.9
+[DEBUG]   Excluded: org.apache.maven:maven-profile:jar:2.0.9
+[DEBUG]   Excluded: org.apache.maven:maven-model:jar:2.0.9
+[DEBUG]   Excluded: org.apache.maven:maven-repository-metadata:jar:2.0.9
+[DEBUG]   Excluded: org.apache.maven:maven-error-diagnostics:jar:2.0.9
+[DEBUG]   Excluded: org.apache.maven:maven-project:jar:2.0.9
+[DEBUG]   Excluded: org.apache.maven:maven-plugin-registry:jar:2.0.9
+[DEBUG]   Excluded: org.apache.maven:maven-plugin-descriptor:jar:2.0.9
+[DEBUG]   Excluded: org.apache.maven:maven-artifact-manager:jar:2.0.9
+[DEBUG]   Excluded: org.apache.maven:maven-monitor:jar:2.0.9
+[DEBUG]   Excluded: org.apache.maven:maven-toolchain:jar:1.0
+[DEBUG]   Excluded: org.codehaus.plexus:plexus-container-default:jar:1.5.5
+[DEBUG]   Excluded: org.codehaus.plexus:plexus-classworlds:jar:2.2.2
+[DEBUG] Configuring mojo org.apache.maven.plugins:maven-compiler-plugin:3.1:compile from plugin realm ClassRealm[plugin>org.apache.maven.plugins:maven-compiler-plugin:3.1, parent: sun.misc.Launcher$AppClassLoader@5f2e712f]
+[DEBUG] Configuring mojo 'org.apache.maven.plugins:maven-compiler-plugin:3.1:compile' with basic configurator -->
+[DEBUG]   (f) basedir = /home/sandeep/projects/data_access/voltdb_benchmark
+[DEBUG]   (f) buildDirectory = /home/sandeep/projects/data_access/voltdb_benchmark/target
+[DEBUG]   (f) classpathElements = [/home/sandeep/projects/data_access/voltdb_benchmark/target/classes, /root/.m2/repository/org/voltdb/voltdb-client/4.4/voltdb-client-4.4.jar, /root/.m2/repository/org/voltdb/voltdb/4.4/voltdb-4.4.jar]
+[DEBUG]   (f) compileSourceRoots = [/home/sandeep/projects/data_access/voltdb_benchmark/src/main/java]
+[DEBUG]   (f) compilerId = javac
+[DEBUG]   (f) debug = true
+[DEBUG]   (f) encoding = UTF-8
+[DEBUG]   (f) failOnError = true
+[DEBUG]   (f) forceJavacCompilerUse = false
+[DEBUG]   (f) fork = false
+[DEBUG]   (f) generatedSourcesDirectory = /home/sandeep/projects/data_access/voltdb_benchmark/target/generated-sources/annotations
+[DEBUG]   (f) mojoExecution = org.apache.maven.plugins:maven-compiler-plugin:3.1:compile {execution: default-compile}
+[DEBUG]   (f) optimize = false
+[DEBUG]   (f) outputDirectory = /home/sandeep/projects/data_access/voltdb_benchmark/target/classes
+[DEBUG]   (f) projectArtifact = me.tingri:voltdb_benchmark:jar:1.0-SNAPSHOT
+[DEBUG]   (f) showDeprecation = false
+[DEBUG]   (f) showWarnings = false
+[DEBUG]   (f) skipMultiThreadWarning = false
+[DEBUG]   (f) source = 1.7
+[DEBUG]   (f) staleMillis = 0
+[DEBUG]   (f) target = 1.7
+[DEBUG]   (f) useIncrementalCompilation = true
+[DEBUG]   (f) verbose = false
+[DEBUG]   (f) mavenSession = org.apache.maven.execution.MavenSession@25443877
+[DEBUG]   (f) session = org.apache.maven.execution.MavenSession@25443877
+[DEBUG] -- end configuration --
+[DEBUG] Using compiler 'javac'.
+[DEBUG] Source directories: [/home/sandeep/projects/data_access/voltdb_benchmark/src/main/java]
+[DEBUG] Classpath: [/home/sandeep/projects/data_access/voltdb_benchmark/target/classes
+ /root/.m2/repository/org/voltdb/voltdb-client/4.4/voltdb-client-4.4.jar
+ /root/.m2/repository/org/voltdb/voltdb/4.4/voltdb-4.4.jar]
+[DEBUG] Output directory: /home/sandeep/projects/data_access/voltdb_benchmark/target/classes
+[DEBUG] CompilerReuseStrategy: reuseCreated
+[DEBUG] useIncrementalCompilation enabled
+[DEBUG] Stale source detected: /home/sandeep/projects/data_access/voltdb_benchmark/src/main/java/common/Constants.java
+[DEBUG] Stale source detected: /home/sandeep/projects/data_access/voltdb_benchmark/src/main/java/reviewer/native_api/SyncBenchmark.java
+[DEBUG] Stale source detected: /home/sandeep/projects/data_access/voltdb_benchmark/src/main/java/models/Message.java
+[DEBUG] Stale source detected: /home/sandeep/projects/data_access/voltdb_benchmark/src/main/java/reviewer/procedures/Initialize.java
+[DEBUG] Stale source detected: /home/sandeep/projects/data_access/voltdb_benchmark/src/main/java/common/ReviewerConfig.java
+[DEBUG] Stale source detected: /home/sandeep/projects/data_access/voltdb_benchmark/src/main/java/reviewer/procedures/Results.java
+[DEBUG] Stale source detected: /home/sandeep/projects/data_access/voltdb_benchmark/src/main/java/reviewer/procedures/Review.java
+[DEBUG] Stale source detected: /home/sandeep/projects/data_access/voltdb_benchmark/src/main/java/reviewer/jdbc/JDBCBenchmark.java
+[DEBUG] Stale source detected: /home/sandeep/projects/data_access/voltdb_benchmark/src/main/java/reviewer/native_api/NativeAPIBenchmark.java
+[DEBUG] Stale source detected: /home/sandeep/projects/data_access/voltdb_benchmark/src/main/java/util/StdOut.java
+[DEBUG] Stale source detected: /home/sandeep/projects/data_access/voltdb_benchmark/src/main/java/models/Stats.java
+[DEBUG] Stale source detected: /home/sandeep/projects/data_access/voltdb_benchmark/src/main/java/common/BookReviewsGenerator.java
+[DEBUG] Stale source detected: /home/sandeep/projects/data_access/voltdb_benchmark/src/main/java/reviewer/native_api/AsyncBenchmark.java
+[DEBUG] Stale source detected: /home/sandeep/projects/data_access/voltdb_benchmark/src/main/java/util/RandomTextGenerator.java
+[DEBUG] Stale source detected: /home/sandeep/projects/data_access/voltdb_benchmark/src/main/java/common/DBConnection.java
+[DEBUG] Stale source detected: /home/sandeep/projects/data_access/voltdb_benchmark/src/main/java/reviewer/Benchmark.java
+[DEBUG] Stale source detected: /home/sandeep/projects/data_access/voltdb_benchmark/src/main/java/reviewer/SimpleBenchmark.java
 [INFO] Changes detected - recompiling the module!
+[DEBUG] Classpath:
+[DEBUG]  /home/sandeep/projects/data_access/voltdb_benchmark/target/classes
+[DEBUG]  /root/.m2/repository/org/voltdb/voltdb-client/4.4/voltdb-client-4.4.jar
+[DEBUG]  /root/.m2/repository/org/voltdb/voltdb/4.4/voltdb-4.4.jar
+[DEBUG] Source roots:
+[DEBUG]  /home/sandeep/projects/data_access/voltdb_benchmark/src/main/java
+[DEBUG] Command line options:
+[DEBUG] -d /home/sandeep/projects/data_access/voltdb_benchmark/target/classes -classpath /home/sandeep/projects/data_access/voltdb_benchmark/target/classes:/root/.m2/repository/org/voltdb/voltdb-client/4.4/voltdb-client-4.4.jar:/root/.m2/repository/org/voltdb/voltdb/4.4/voltdb-4.4.jar: -sourcepath /home/sandeep/projects/data_access/voltdb_benchmark/src/main/java: -s /home/sandeep/projects/data_access/voltdb_benchmark/target/generated-sources/annotations -g -nowarn -target 1.7 -source 1.7 -encoding UTF-8
+[DEBUG] incrementalBuildHelper#beforeRebuildExecution
 [INFO] Compiling 17 source files to /home/sandeep/projects/data_access/voltdb_benchmark/target/classes
+[DEBUG] incrementalBuildHelper#afterRebuildExecution
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 2.055s
-[INFO] Finished at: Tue Oct 28 16:37:36 EDT 2014
-[INFO] Final Memory: 14M/148M
+[INFO] Total time: 1.916s
+[INFO] Finished at: Tue Nov 04 17:04:41 EST 2014
+[INFO] Final Memory: 13M/148M
 [INFO] ------------------------------------------------------------------------
++ '[' 0 '!=' 0 ']'
++ echo 'Compiling the reviewer application catalog.'
 Compiling the reviewer application catalog.
++ echo 'To perform this action manually, use the command line: '
 To perform this action manually, use the command line: 
++ echo
 
++ echo 'voltdb compile --classpath target/classes -o voltdb_benchmark.jar ddl.sql'
 voltdb compile --classpath target/classes -o voltdb_benchmark.jar ddl.sql
++ echo
 
++ /home/sandeep/tools/voltdb/bin/voltdb compile --classpath target/classes -o voltdb_benchmark.jar ddl.sql
 WARN: [Results.class]: Procedure Results has a statement with a non-deterministic result - statement: "SELECT book_name, book_id,  COUNT(*) as num_reviews     FROM reviews, books where reviews.book_id = books.book_id GROUP BY book_name,book_id order by num_reviews desc;", reason: the query result does not guarantee a consistent ordering
 ------------------------------------------
 Successfully created voltdb_benchmark.jar
@@ -72,6 +559,16 @@ Includes schema: ddl.sql
 
 ------------------------------------------
 
+Added the following additional classes to the catalog jar:
+  common.BookReviewsGenerator
+  common.Constants
+  common.DBConnection
+  common.ReviewerConfig
+  util.RandomTextGenerator
+  util.StdOut
+
+------------------------------------------
+
 Catalog contains 6 built-in CRUD procedures.
 	Simple insert, update, delete, upsert and select procedures are created
 	automatically for convenience.
@@ -98,8 +595,16 @@ Full catalog report can be found at file:///home/sandeep/projects/data_access/vo
 
 ------------------------------------------
 
++ '[' 0 '!=' 0 ']'
++ echo 'Starting the VoltDB server.'
 Starting the VoltDB server.
++ echo 'To perform this action manually, use the command line: '
 To perform this action manually, use the command line: 
++ echo
 
++ echo '/home/sandeep/tools/voltdb/bin/voltdb create -d deployment.xml -l /home/sandeep/tools/voltdb/voltdb/license.xml -H localhost voltdb_benchmark.jar'
 /home/sandeep/tools/voltdb/bin/voltdb create -d deployment.xml -l /home/sandeep/tools/voltdb/voltdb/license.xml -H localhost voltdb_benchmark.jar
++ echo
 
++ cd /home/sandeep/projects/data_access
++ nohup /home/sandeep/tools/voltdb/bin/voltdb create -d deployment.xml -l /home/sandeep/tools/voltdb/voltdb/license.xml -H localhost voltdb_benchmark.jar

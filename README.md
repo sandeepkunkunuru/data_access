@@ -4,9 +4,9 @@ Data access layer for big data - In memory databases
 Scope
 ------
 * Setup VoltDB Community Edition.
-* VoltDB features - Tables, stored procedures - inline and user defined, views
+* VoltDB features - Tables, stored procedures - inline and user defined, views, paritioning, use custom classes in stored procedures.
 * Benchmark VoltDB.
-* VoltDB stored procedures to add to the built-in list of functions ex: UDFs like group_concat or listagg and UDTFs like explode
+* VoltDB stored procedures to add to the built-in list of functions ex: UDFs like group_concat (a.k.a listagg) a UDTFs like explode
 
 Module - voltdb_benchmark - Description
 ---------------------------------------
@@ -35,4 +35,6 @@ References
 - Maven Download - ftp://mirror.reverse.net/pub/apache/maven/maven-3/3.2.3/binaries/apache-maven-3.2.3-bin.tar.gz
 - Install VoltDB client jar into local maven repository - http://blog.tingri.me/?p=254
 - Voltdb Voter sample application - https://github.com/VoltDB/voltdb/tree/master/examples/voter
+- Adding Unmanaged Dependencies to a Maven Project - https://devcenter.heroku.com/articles/local-maven-dependencies
+- IMPORT CLASS — Specifies additional Java classes to include in the application catalog - http://docs.voltdb.com/UsingVoltDB/ddlref_importclass.php
 
