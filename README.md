@@ -1,12 +1,26 @@
 Data access layer for big data - In memory databases
 =====================================================
 
+Technology Stack
+-----------------
+* OS Version : Ubuntu utopic(14.10)
+* VoltDB Version : 5.x.x Community Edition
+* Hadoop Version : 2.4.1
+* Hive Version : 0.13.1
+
 Scope
 ------
 * Setup VoltDB Community Edition.
 * VoltDB features - Tables, stored procedures - inline and user defined, views, paritioning, use custom classes in stored procedures.
 * Benchmark VoltDB.
 * VoltDB stored procedures to add to the built-in list of functions ex: UDFs like group_concat (a.k.a listagg) a UDTFs like explode
+* Dynamic DDL execution through JDBC
+* Binding multiple SQL statements into a transaction
+    * Creating a table
+    * Inserting few records (Using Insert into Select)
+    * Executing a query
+    * Dropping the table
+* Hadoop <<-- -->> VoltDB - Bi-directional data movement.
 
 Module - voltdb_benchmark - Description
 ---------------------------------------
@@ -31,7 +45,7 @@ books given by reviewers identified by unique email ids.
 
 References
 ----------
-- Download VoltDB Community Edition  - http://downloads.voltdb.com/technologies/server/LINUX-voltdb-4.8.tar.gz
+- Download VoltDB Community Edition  - http://downloads.voltdb.com/technologies/server/LINUX-voltdb-5.0.tar.gz
 - Maven Download - ftp://mirror.reverse.net/pub/apache/maven/maven-3/3.2.3/binaries/apache-maven-3.2.3-bin.tar.gz
 - Install VoltDB client jar into local maven repository - http://blog.tingri.me/?p=254
 - Voltdb Voter sample application - https://github.com/VoltDB/voltdb/tree/master/examples/voter

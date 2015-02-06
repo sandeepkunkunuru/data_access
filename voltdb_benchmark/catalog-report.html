@@ -1,110 +1,69 @@
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>VoltDB Catalog Report</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <!-- Le styles -->
-    <link href="http://assets.voltdb.com/b/css/bootstrap.min.css" rel="stylesheet">
-    <style type="text/css">
-      body {
-        padding-top: 60px;
-        padding-bottom: 40px;
-      }
-      .invert {
-        background-color: #0079BB;
-      }
-      td.invert>p {
-        color: white;
-      }
-      td.invert>p>a {
-        color: #eeeeee;
-      }
-      .table th.right-cell, .table td.right-cell {
-		text-align: right;
-      }
-      .table th.calculated-cell, .table td.calculated-cell {
-        font-weight: bold;
-        background-color: #e6ebf0;
-      }
-      .table th.min-max-header {
-        font-size: smaller;
-      }
-      td.table-view-name {
-        font-weight: bold;
-      }
-      table.size-summary-table {
-        width: auto;
-      }
-      input.count-input {
-        width: 100px;
-        text-align: right;
-      }
-    </style>
-    <link href="http://assets.voltdb.com/b/css/bootstrap-responsive.css" rel="stylesheet">
-    <link href="http://assets.voltdb.com/t/css/theme.bootstrap.css" rel="stylesheet">
-
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>VoltDB Management Center</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<link href="http://assets.voltdb.com/css/resources/schema/bootstrap.min.css" rel="stylesheet">
+<link href="http://assets.voltdb.com/css/resources/schema/bootstrap-responsive.css" rel="stylesheet">
+<link href="http://assets.voltdb.com/css/resources/schema/theme.bootstrap.css" rel="stylesheet">
+<link href="http://assets.voltdb.com/css/resources/layout.css" rel="stylesheet" />
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
       <script src="http://assets.voltdb.com/b/js/html5shiv.js"></script>
     <![endif]-->
-
-    <!-- Fav and touch icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
-      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
-                    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
-                                   <link rel="shortcut icon" href="../assets/ico/favicon.png">
-  </head>
-
-  <body>
-    <iframe name="versioncheck" id="versioncheck" style="display:none;" width="1" height="1" frameborder="0" src="about:blank"></iframe>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="brand" href="#o">VoltDB Catalog Report</a>
-          <div class="nav-collapse collapse">
-            <ul class="nav">
-              <li id='o-nav'> <a href="#o">Overview</a></li>
-              <li id='s-nav'> <a href="#s">Schema</a></li>
-              <li id='p-nav'> <a href="#p">Procedures &amp; SQL</a></li>
-              <li id='r-nav'> <a href="#r">System Report</a></li>
-              <li id='z-nav'> <a href="#z">Size Worksheet</a></li>
-              <li id='d-nav'> <a href="#d">DDL Source</a></li>
-            <!--##RESOURCES
-              <li id='m-nav'> <a href='/memory/'>Memory Report</a></li>
-            ##RESOURCES-->
-            </ul>
-          </div><!--/.nav-collapse -->
+<!-- Fav and touch icons -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+<link rel="shortcut icon" href="../assets/ico/favicon.png">
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#schemaLinkSqlQuery").on("click", function () {
+                //For opening the SQL Query Tab
+                $.cookie("current-tab", 3, { path: '/', domain: window.location.hostname });
+            });
+        });
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <div class="catalogContainer" id="catalogContainer">
+        <div class="catalogMenu" id="MenuCatalog">
+            <div class="nav-collapse collapse">
+                <ul class="catalogNav" id="catalogNavlist">
+                    <li id='o-nav'> <a href="#o">Overview</a></li>
+                    <li id='s-nav'> <a href="#s">Schema</a></li>
+                    <li id='p-nav'> <a href="#p">Procedures &amp; SQL</a></li>
+                    <!--        <li id='r-nav'> <a href="#r">System Report</a></li> -->
+                    <li id='z-nav'> <a href="#z">Size Worksheet</a></li>
+                    <li id='d-nav'> <a href="#d">DDL Source</a></li>
+                    <!--        <li id='m-nav'> <a href='/memory/'>Memory Report</a></li> -->
+                </ul>
+                <div class="clear"></div>
+            </div>
         </div>
-      </div>
-    </div>
 
-    <div class="container">
-
-        <div id='o' class='reportpage'>
-            <a name='o'></a><h1>Overview</h1><br/>
-            <div class='well text-center' style='font-size: 18px;'>
-                <p>This report was generated by the VoltDB compiler. It shows the
-                <a href='#s'>schema</a> and <a href='#p'>procedures</a> that comprise a
-                compiled VoltDB application catalog.</p>
-            <!--##RESOURCES
-                <p>Use <strong><a href='/studio/'> VoltDB Studio</a></strong><small><a href='/studio/'> (/studio/)</a></small> to issue SQL queries and call stored procedures against the database. </p>
-            ##RESOURCES-->
-            </div><br/>
-
-            <!--##CLUSTER##-->
-            <h4>Catalog Overview Statistics</h4>
-            <table class='table table-condensed'>
-<tr><td>Compiled by VoltDB Version</td><td>4.8</td></tr>
-<tr><td>Compiled on</td><td>Tue, 4 Nov 2014 22:04:42 GMT+00:00</td></tr>
+        <!-- /container -->
+        <div class="container" id="containerCatalog">
+            <div id='o' class='reportpage'>
+                <div class="dataBlock">
+                    <div class="dataBlockContent systemOver" style="padding:0;">
+                        <!--##CLUSTER##-->
+                    </div>
+                </div>
+                <div class="dataBlock">
+                    <div class="dataBlockHeading" style="border-bottom:none;">
+                        <h3>Catalog Overview Statistics</h3>
+                    </div>
+                    <div class="dataBlockContent" style="padding:0;"> <table class='table table-condensed'>
+<tr><td>Compiled by VoltDB Version</td><td>5.1</td></tr>
+<tr><td>Compiled on</td><td>Fri, 6 Feb 2015 21:13:36 GMT+00:00</td></tr>
 <tr><td>Table Count</td><td>2 (2 partitioned / 0 replicated)</td></tr>
 <tr><td>Materialized View Count</td><td>1</td></tr>
 <tr><td>Index Count</td><td>2</td></tr>
@@ -112,32 +71,43 @@
 <tr><td>SQL Statement Count</td><td>7</td></tr>
 </table>
 
-<h4>Warnings</h4><table class='table table-condensed'>
-<tr><td><a href='#p-results'>Results</a></td><td>Procedure Results has a statement with a non-deterministic result - statement: "SELECT book_name, book_id,  COUNT(*) as num_reviews     FROM reviews, books where reviews.book_id = books.book_id GROUP BY book_name,book_id order by num_reviews desc;", reason: the query result does not guarantee a consistent ordering</td></tr>
-</table>
-</td></tr>
+ </div>
+                </div>
+            </div>
+            <div id='s' class='reportpage' style='display: none;'>
+                <div class="dataBlock">
+                    <div class="dataBlockHeading"> <a name='s'></a>
+                        <h1>Schema</h1>
+                    </div>
+                    <div class="dataBlockContent">
+                        <div class="tblScroll">
+                        <div class="checkbox">
+                         <label>
+                          <input type="checkbox" class="cb"> Expand All
+                         </label>
+                        </div>
+                        <table class="table tableL1 tablesorter" id='schematable'>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Type</th>
+                                    <th>Partitioning</th>
+                                    <th>Columns</th>
+                                    <th>Indexes</th>
+                                    <th>PKey</th>
+                                    <th>TupleLimit</th>
+                                </tr>
+                            </thead>
+                            <tbody>
 
-        </div>
-
-        <div id='s' class='reportpage' style='display: none;'>
-          <a name='s'></a><h1>Schema</h1><br/>
-
-          <table class="table tableL1 tablesorter" id='schematable'>
-                <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Type</th>
-                    <th>Partitioning</th>
-                    <th>Columns</th>
-                    <th>Indexes</th>
-                    <th>PKey</th>
-                    <th>TupleLimit</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr class='primaryrow'><td style='white-space: nowrap;'><i id='s-books--icon' class='icon-chevron-right'></i> <a href='#' id='s-books' class='togglex'>BOOKS</a></td><td><span class='label label l-Table'>Table</span></td><td style='whitespace: nowrap;'><span class='label label-success l-Partitioned'>Partitioned</span><small> on BOOK_ID</small></td><td>2</td><td>1</td><td><span class='label label-info l-Has-PKey'>Has-PKey</span></td><td><span class='label label l-No-limit'>No-limit</span></td></tr>
+                                <tr class='primaryrow'><td style='white-space: nowrap;'><i id='s-books--icon' class='icon-chevron-right'></i> <a href='#' id='s-books' class='togglex'>BOOKS</a></td><td><span class='label label l-Table'>Table</span></td><td style='whitespace: nowrap;'><span class='label label-success l-Partitioned'>Partitioned</span><small> on BOOK_ID</small></td><td>2</td><td>1</td><td><span class='label label-info l-Has-PKey'>Has-PKey</span></td><td><span class='label label l-No-limit'>No-limit</span></td></tr>
 <tr class='tablesorter-childRow'><td class='invert' colspan='7' id='s-books--dropdown'>
-<p><pre>CREATE TABLE books (   book_id integer     NOT NULL , book_name   varchar(50) NOT NULL , CONSTRAINT PK_books PRIMARY KEY   (     book_id   ) );</pre></p>
+<p><pre>CREATE TABLE BOOKS (
+   BOOK_ID integer NOT NULL,
+   BOOK_NAME varchar(50) NOT NULL,
+   CONSTRAINT PK_BOOKS PRIMARY KEY (BOOK_ID)
+);
+</pre></p>
 <p>Read-only by procedures: <a href='#p-Results'>Results</a>, <a href='#p-Review'>Review</a>, <a href='#p-ReviewsForBook'>ReviewsForBook</a></p><p>Read/Write by procedures: <a href='#p-Initialize'>Initialize</a></p>    <table class='table tableL2 table-condensed'>
     <thead><tr><th>Index Name</th><th>Type</th><th>Columns</th><th>Attributes</th></tr>
         <tr class='primaryrow2'><td style='white-space: nowrap'><i id='s-books-voltdb_autogen_constraint_idx_pk_books--icon' class='icon-chevron-right'></i> <a href='#' id='s-books-voltdb_autogen_constraint_idx_pk_books' class='togglex'>VOLTDB_AUTOGEN_CONSTRAINT_IDX_PK_BOOKS</a></td><td>BALANCED_TREE</td><td>BOOK_ID</td><td><span class='label label-success l-Unique'>Unique</span></td></tr>
@@ -148,7 +118,12 @@
 </td></tr>
 <tr class='primaryrow'><td style='white-space: nowrap;'><i id='s-reviews--icon' class='icon-chevron-right'></i> <a href='#' id='s-reviews' class='togglex'>REVIEWS</a></td><td><span class='label label l-Table'>Table</span></td><td style='whitespace: nowrap;'><span class='label label-success l-Partitioned'>Partitioned</span><small> on BOOK_ID</small></td><td>3</td><td>0</td><td><span class='label label l-No-PKey'>No-PKey</span></td><td><span class='label label l-No-limit'>No-limit</span></td></tr>
 <tr class='tablesorter-childRow'><td class='invert' colspan='7' id='s-reviews--dropdown'>
-<p><pre>CREATE TABLE reviews (   email       varchar(50)     NOT NULL , review      varchar(100) NOT NULL , book_id  integer    NOT NULL );</pre></p>
+<p><pre>CREATE TABLE REVIEWS (
+   EMAIL varchar(50) NOT NULL,
+   REVIEW varchar(100) NOT NULL,
+   BOOK_ID integer NOT NULL
+);
+</pre></p>
 <p>Read-only by procedures: <a href='#p-Results'>Results</a>, <a href='#p-ReviewsForBook'>ReviewsForBook</a></p><p>Read/Write by procedures: <a href='#p-Review'>Review</a></p><p>No indexes defined on table.</p>
 </td></tr>
 <tr class='primaryrow'><td style='white-space: nowrap;'><i id='s-v_reviews_by_email--icon' class='icon-chevron-right'></i> <a href='#' id='s-v_reviews_by_email' class='togglex'>V_REVIEWS_BY_EMAIL</a></td><td><span class='label label-info l-Materialized_View'>Materialized View</span></td><td style='whitespace: nowrap;'><span class='label label-success l-Partitioned'>Partitioned</span><small> with REVIEWS</small></td><td>2</td><td>1</td><td><span class='label label-info l-Has-PKey'>Has-PKey</span></td><td><span class='label label l-No-limit'>No-limit</span></td></tr>
@@ -163,15 +138,25 @@
     </table>
 </td></tr>
 
-                </tbody>
-            </table>
-            <a href = '#d'>View the DDL Source</a>
-        </div>
-        
-        <div id='d' class='reportpage' style='display: none;'>
-          <a name='d'></a><h1>DDL Source
-          <a href = '/ddl/' class = "btn" download = "ddl.sql">Download</a></h1><br/>
-          <pre>IMPORT CLASS common.*;IMPORT CLASS util.*;
+                            </tbody>
+
+                        </table>
+                        </div>
+                        <br/>
+                        <br/>
+                        <span class="prop"><a href = '#d' id="ddlSource">View the DDL Source</a></span> </div>
+                </div>
+            </div>
+            <div id='d' class='reportpage' style='display: none;'>
+                <div class="dataBlock">
+                    <div class="dataBlockHeading"> <a name='d'></a>
+                  <h1>DDL Source <a class="btn" id="downloadDDL" download="ddl.sql" href="/ddl/" style="padding:5px;">Download</a> </h1>
+                    </div>
+                    <div class="dataBlockContent">
+                        <pre>-- This file was generated by VoltDB version 5.1 on: 2015-02-06 21:13:36 GMT+00:00.
+-- This file represents the current database schema.
+-- Use this file as input to reproduce the current database structure in another database instance.
+IMPORT CLASS common.*;IMPORT CLASS util.*;
 CREATE TABLE BOOKS (
    BOOK_ID integer NOT NULL,
    BOOK_NAME varchar(50) NOT NULL,
@@ -199,10 +184,9 @@ CREATE PROCEDURE
 CREATE PROCEDURE 
    FROM CLASS reviewer.procedures.Results;
 
-CREATE PROCEDURE 
+CREATE PROCEDURE --Annotated Partitioning Takes Precedence Over DDL Procedure Partitioning Statement
+--   PARTITION ON TABLE REVIEWS COLUMN BOOK_ID PARAMETER 2
    FROM CLASS reviewer.procedures.Review;
---Annotated Partitioning Takes Precedence Over DDL Procedure Partitioning Statement
---PARTITION PROCEDURE Review ON TABLE REVIEWS COLUMN BOOK_ID PARAMETER 2;
 
 CREATE PROCEDURE ReviewsForBook
    AS
@@ -210,31 +194,42 @@ CREATE PROCEDURE ReviewsForBook
 
 
 </pre>
-        </div>
+                    </div>
+                </div>
+            </div>
+            <div id='p' class='reportpage' style='display: none;'>
+                <div class="dataBlock">
+                    <div class="dataBlockHeading"> <a name='p'></a>
+                        <h1>Procedures &amp; SQL</h1>
+                    </div>
+                    <div class="dataBlockContent">
+                        <div class="tblScroll">
+                        <div class="checkbox">
+                        <label>
+                         <input type="checkbox" class="cb"> Expand All
+                        </label>
+                       </div>
+                        <table class="table tableL1 tablesorter" id='proctable'>
+                            <thead>
+                                <tr>
+                                    <th>Procedure Name</th>
+                                    <th>Parameters</th>
+                                    <th>Partitioning</th>
+                                    <th>R/W</th>
+                                    <th>Access</th>
+                                    <th>Attributes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
 
-        <div id='p' class='reportpage' style='display: none;'>
-          <a name='p'></a><h1>Procedures &amp; SQL</h1><br/>
-
-          <table class="table tableL1 tablesorter" id='proctable'>
-                <thead>
-                <tr>
-                    <th>Procedure Name</th>
-                    <th>Parameters</th>
-                    <th>Partitioning</th>
-                    <th>R/W</th>
-                    <th>Access</th>
-                    <th>Attributes</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr class='primaryrow'><td style='white-space: nowrap'><i id='p-initialize--icon' class='icon-chevron-right'></i> <a href='#p-initialize' id='p-initialize' class='togglex'>Initialize</a></td><td>INTEGER, STRING</td><td><span class='label label-warning l-Multi'>Multi</span></td><td><span class='label label-warning l-Write'>Write</span></td><td><i>None</i></td><td><span class='label label-info l-Java'>Java</span></td></tr>
+                                <tr class='primaryrow'><td style='white-space: nowrap'><i id='p-initialize--icon' class='icon-chevron-right'></i> <a href='#p-initialize' id='p-initialize' class='togglex'>Initialize</a></td><td>INTEGER, STRING</td><td><span class='label label-warning l-Multi'>Multi</span></td><td><span class='label label-warning l-Write'>Write</span></td><td><i>None</i></td><td><span class='label label-info l-Java'>Java</span></td></tr>
 <tr class='tablesorter-childRow'><td class='invert' colspan='6' id='p-initialize--dropdown'>
 <p>Read/Write access to tables: <a href='#s-BOOKS'>BOOKS</a></p>    <table class='table tableL2 table-condensed'>
     <thead><tr><th><span style='white-space: nowrap;'>Statement Name</span></th><th>Statement SQL</th><th>Params</th><th>R/W</th><th>Attributes</th></tr>
         <tr class='primaryrow2'><td style='white-space: nowrap'><i id='p-initialize-checkstmt--icon' class='icon-chevron-right'></i> <a href='#' id='p-initialize-checkstmt' class='togglex'>checkStmt</a></td><td><tt>SELECT COUNT(*) FROM books;</td></tt><td><i>None</i></td><td><span class='label label-success l-Read'>Read</span></td><td></td></tr>
 <tr class='dropdown2'><td colspan='5' id='p-initialize-checkstmt--dropdown'>
 <div class='well well-small'><h4>Explain Plan:</h4>
-<tt>RETURN&nbsp;RESULTS&nbsp;TO&nbsp;STORED&nbsp;PROCEDURE<br/>&nbsp;Serial&nbsp;AGGREGATION&nbsp;ops:&nbsp;SUM(VOLT_TEMP_TABLE.column#0)<br/>&nbsp;&nbsp;RECEIVE&nbsp;FROM&nbsp;ALL&nbsp;PARTITIONS<br/>&nbsp;&nbsp;&nbsp;SEND&nbsp;PARTITION&nbsp;RESULTS&nbsp;TO&nbsp;COORDINATOR<br/>&nbsp;&nbsp;&nbsp;&nbsp;TABLE&nbsp;COUNT&nbsp;of&nbsp;"BOOKS"<br/></tt></div>
+<tt>RETURN&nbsp;RESULTS&nbsp;TO&nbsp;STORED&nbsp;PROCEDURE<br/>&nbsp;Serial&nbsp;AGGREGATION&nbsp;ops:&nbsp;SUM(VOLT_TEMP_TABLE.column#0)<br/>&nbsp;&nbsp;RECEIVE&nbsp;FROM&nbsp;ALL&nbsp;PARTITIONS<br/>&nbsp;&nbsp;&nbsp;SEND&nbsp;PARTITION&nbsp;RESULTS&nbsp;TO&nbsp;COORDINATOR<br/>&nbsp;&nbsp;&nbsp;&nbsp;TABLE&nbsp;COUNT&nbsp;of&nbsp;&quot;BOOKS&quot;<br/></tt></div>
 </td></tr>
         <tr class='primaryrow2'><td style='white-space: nowrap'><i id='p-initialize-insertbookstmt--icon' class='icon-chevron-right'></i> <a href='#' id='p-initialize-insertbookstmt' class='togglex'>insertBookStmt</a></td><td><tt>INSERT INTO books (book_name, book_id) VALUES (?, ?);</td></tt><td>STRING, INTEGER</td><td><span class='label label-warning l-Write'>Write</span></td><td></td></tr>
 <tr class='dropdown2'><td colspan='5' id='p-initialize-insertbookstmt--dropdown'>
@@ -248,7 +243,7 @@ CREATE PROCEDURE ReviewsForBook
 <tr class='tablesorter-childRow'><td class='invert' colspan='6' id='p-results--dropdown'>
 <p>Read-only access to tables: <a href='#s-BOOKS'>BOOKS</a>, <a href='#s-REVIEWS'>REVIEWS</a></p><p>Uses indexes: <a href='#s-BOOKS-VOLTDB_AUTOGEN_CONSTRAINT_IDX_PK_BOOKS'>VOLTDB_AUTOGEN_CONSTRAINT_IDX_PK_BOOKS</a></p>    <table class='table tableL2 table-condensed'>
     <thead><tr><th><span style='white-space: nowrap;'>Statement Name</span></th><th>Statement SQL</th><th>Params</th><th>R/W</th><th>Attributes</th></tr>
-        <tr class='primaryrow2'><td style='white-space: nowrap'><i id='p-results-resultstmt--icon' class='icon-chevron-right'></i> <a href='#' id='p-results-resultstmt' class='togglex'>resultStmt</a></td><td><tt>SELECT book_name, book_id,  COUNT(*) as num_reviews     FROM reviews, books where reviews.book_id = books.book_id GROUP BY book_name,book_id order by num_reviews desc;</td></tt><td><i>None</i></td><td><span class='label label-success l-Read'>Read</span></td><td><span class='label label-inverse l-Determinism'>Determinism</span><span class='label label-important l-Scans'>Scans</span></td></tr>
+        <tr class='primaryrow2'><td style='white-space: nowrap'><i id='p-results-resultstmt--icon' class='icon-chevron-right'></i> <a href='#' id='p-results-resultstmt' class='togglex'>resultStmt</a></td><td><tt>SELECT book_name, book_id,  COUNT(*) as num_reviews     FROM reviews, books where reviews.book_id = books.book_id GROUP BY book_name,book_id order by num_reviews desc;</td></tt><td><i>None</i></td><td><span class='label label-success l-Read'>Read</span></td><td><span class='label label-important l-Scans'>Scans</span></td></tr>
 <tr class='dropdown2'><td colspan='5' id='p-results-resultstmt--dropdown'>
 <div class='well well-small'><h4>Explain Plan:</h4>
 <tt>RETURN&nbsp;RESULTS&nbsp;TO&nbsp;STORED&nbsp;PROCEDURE<br/>&nbsp;ORDER&nbsp;BY&nbsp;(SORT)<br/>&nbsp;&nbsp;RECEIVE&nbsp;FROM&nbsp;ALL&nbsp;PARTITIONS<br/>&nbsp;&nbsp;&nbsp;SEND&nbsp;PARTITION&nbsp;RESULTS&nbsp;TO&nbsp;COORDINATOR<br/>&nbsp;&nbsp;&nbsp;&nbsp;NESTLOOP&nbsp;INDEX&nbsp;INNER&nbsp;JOIN<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inline&nbsp;Hash&nbsp;AGGREGATION&nbsp;ops:&nbsp;COUNT(<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inline&nbsp;INDEX&nbsp;SCAN&nbsp;of&nbsp;"<a href='#s-BOOKS'>BOOKS</a>"&nbsp;using&nbsp;its&nbsp;primary&nbsp;key&nbsp;index<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;uniquely&nbsp;match&nbsp;(BOOK_ID&nbsp;=&nbsp;REVIEWS.BOOK_ID)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SEQUENTIAL&nbsp;SCAN&nbsp;of&nbsp;"<a href='#s-REVIEWS'>REVIEWS</a>"<br/></tt></div>
@@ -291,72 +286,86 @@ CREATE PROCEDURE ReviewsForBook
     </table>
 </td></tr>
 
-                </tbody>
-            </table>
+                            </tbody>
 
-        </div>
-
-        <div id='r' class='reportpage' style='display: none;'>
-            <h1>System Report</h1><br/>
-            <!--##PLATFORM2##-->
-            <h4>VoltDB Compiler Platform:</h4>
-            <p><tt>CPU INFO:         2 Cores, 1 Sockets, 4 Hardware Threads<br/>
+                        </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id='r' class='reportpage' style='display: none;'>
+                <div class="dataBlock">
+                    <div class="dataBlockHeading">
+                        <h1>System Report</h1>
+                    </div>
+                    <div class="dataBlockContent">
+                        <!--##PLATFORM2##-->
+                    </div>
+                </div>
+                <div class="dataBlock">
+                    <div class="dataBlockHeading">
+                        <h4>VoltDB Compiler Platform:</h4>
+                    </div>
+                    <div class="dataBlockContent">
+                        <p><tt>CPU INFO:         2 Cores, 1 Sockets, 4 Hardware Threads<br/>
 CPU DESC:         Intel(R) Core(TM) i7-3687U CPU @ 2.10GHz 4096 KB cache<br/>
 HOST MEMORY (MB): 7856<br/>
-OS PROFILE:       Linux 3.16.0-24-generic amd64 en_US<br/>
+OS PROFILE:       Linux 3.16.0-28-generic amd64 en_US<br/>
 JAVA VERSION:     1.7.0_65<br/>
 JAVA RUNTIME:     OpenJDK Runtime Environment (1.7.0_65-b32)<br/>
 JAVA VM:          OpenJDK 64-Bit Server VM (24.65-b04, mixed mode)<br/>
 </tt></p>
-        </div>
+                    </div>
+                </div>
+            </div>
+            <div id='z' class='reportpage' style='display: none;'>
+                <div class="dataBlock">
+                    <div class="dataBlockHeading"> <a name='z'></a>
+                        <h1>Estimate Memory Used by User Data</h1>
+                    </div>
+                    <div class="dataBlockContent">
+                        <table class="z-table" id="zTbl">
+                            <tr>
+                                <td width='40%'> This sizing worksheet is designed to help VoltDB application developers
+                                    estimate the amount of memory the user data will require in an application.
+                                    These estimates include user data and most of the per-row data structure
+                                    overhead for that data. Memory use that is not proportional to the amount
+                                    of data (e.g., the Java heap and any temporary buffers
+                                    and caches) is not included. </td>
+                                <td width='*'><small>
+                                                  <ul>
+                                                      <li>Sizes without units are in bytes.</li>
+                                                      <li>For more useful results replace row counts with better estimates.</li>
+                                                      <li>All calculated fields update after leaving any input field.</li>
+                                                      <li>Warning: Page refresh resets all input fields.</li>
+                                                      <li> VARCHAR columns are measured in UTF-8 characters by default. VARCHAR
+                                                          columns of up to 16 characters are stored in-line at 4 bytes per character.
+                                                          Columns of 16 characters or more are stored in pooled memory via pointers. </li>
+                                                  </ul>
+                                              </small></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="dataBlockContent">
+                        <div class="tblScroll">
+                        <table class="table tableL3 tablesorter" id='sizetable'>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Type</th>
+                                    <th>Count</th>
+                                    <th class='min-max-header'>Row Min</th>
+                                    <th class='min-max-header'>Row Max</th>
+                                    <th class='min-max-header'>Index Min</th>
+                                    <th class='min-max-header'>Index Max</th>
+                                    <th class='min-max-header'>Table Min</th>
+                                    <th class='min-max-header'>Table Max</th>
+                                </tr>
+                            </thead>
+                            <tbody>
 
-        <div id='z' class='reportpage' style='display: none;'>
-            <a name='z'></a><h1>Estimate Memory Used by User Data</h1><br/>
-
-            <table><tr>
-
-            <td width='60%'>
-                This sizing worksheet is designed to help VoltDB application developers
-                estimate the amount of memory the user data will require in an application.
-                These estimates include user data and most of the per-row data structure
-                overhead for that data. Memory use that is not proportional to the amount
-                of data (e.g., the Java heap and any temporary buffers
-                and caches) is not included.
-            </td>
-
-            <td width='*'>
-            <small><ul>
-                <li>Sizes without units are in bytes.</li>
-                <li>For more useful results replace row counts with better estimates.</li>
-                <li>All calculated fields update after leaving any input field.</li>
-                <li>Warning: Page refresh resets all input fields.</li>
-                <li>
-                    VARCHAR columns are measured in UTF-8 characters by default. VARCHAR
-                    columns of up to 16 characters are stored in-line at 4 bytes per character.
-                    Columns of 16 characters or more are stored in pooled memory via pointers.
-                </li>
-            </ul></small>
-            </td>
-
-            </tr></table>
-            <br/>
-
-            <table class="table tableL3 tablesorter" id='sizetable'>
-                <thead>
-	                <tr>
-	                    <th>Name</th>
-	                    <th>Type</th>
-                        <th>Count</th>
-	                    <th class='min-max-header'>Row Min</th>
-	                    <th class='min-max-header'>Row Max</th>
-	                    <th class='min-max-header'>Index Min</th>
-	                    <th class='min-max-header'>Index Max</th>
-	                    <th class='min-max-header'>Table Min</th>
-	                    <th class='min-max-header'>Table Max</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class='primaryrow'><td class='table-view-name' id='s-size-1'>books</td>
+                                <!--##SIZES##-->
+<tr class='primaryrow'><td class='table-view-name' id='s-size-1'>books</td>
 <td><span class='label label l-Table'>Table</span></td>
 <td><div class='ecount'><input type='text' class='form-control count-input' id='s-size-1-count' onblur='sizes_update_all();' value='1000' class='form-control' placeholder='.ecount'></input>
 </div></td>
@@ -368,7 +377,12 @@ JAVA VM:          OpenJDK 64-Bit Server VM (24.65-b04, mixed mode)<br/>
 <td id='s-size-1-tmax' class='right-cell calculated-cell'>336000</td>
 </tr>
 <tr class='tablesorter-childRow'><td class='invert' colspan='6' id='s-size-1--dropdown'>
-<p><pre>CREATE TABLE books (   book_id integer     NOT NULL , book_name   varchar(50) NOT NULL , CONSTRAINT PK_books PRIMARY KEY   (     book_id   ) );</pre></p>
+<p><pre>CREATE TABLE BOOKS (
+   BOOK_ID integer NOT NULL,
+   BOOK_NAME varchar(50) NOT NULL,
+   CONSTRAINT PK_BOOKS PRIMARY KEY (BOOK_ID)
+);
+</pre></p>
     <table class='table tableL2 table-condensed'>
     <thead><tr><th>Index Name</th><th>Type</th><th>Columns</th><th>Attributes</th></tr>
         <tr class='primaryrow2'><td style='white-space: nowrap'><i id='s-books-voltdb_autogen_constraint_idx_pk_books--icon' class='icon-chevron-right'></i> <a href='#' id='s-books-voltdb_autogen_constraint_idx_pk_books' class='togglex'>VOLTDB_AUTOGEN_CONSTRAINT_IDX_PK_BOOKS</a></td><td>BALANCED_TREE</td><td>BOOK_ID</td><td><span class='label label-success l-Unique'>Unique</span></td></tr>
@@ -389,7 +403,12 @@ JAVA VM:          OpenJDK 64-Bit Server VM (24.65-b04, mixed mode)<br/>
 <td id='s-size-2-tmax' class='right-cell calculated-cell'>836000</td>
 </tr>
 <tr class='tablesorter-childRow'><td class='invert' colspan='6' id='s-size-2--dropdown'>
-<p><pre>CREATE TABLE reviews (   email       varchar(50)     NOT NULL , review      varchar(100) NOT NULL , book_id  integer    NOT NULL );</pre></p>
+<p><pre>CREATE TABLE REVIEWS (
+   EMAIL varchar(50) NOT NULL,
+   REVIEW varchar(100) NOT NULL,
+   BOOK_ID integer NOT NULL
+);
+</pre></p>
 <p>No indexes defined on table.</p>
 </td></tr>
 <tr class='primaryrow'><td class='table-view-name' id='s-size-3'>v_reviews_by_email</td>
@@ -414,12 +433,19 @@ JAVA VM:          OpenJDK 64-Bit Server VM (24.65-b04, mixed mode)<br/>
     </table>
 </td></tr>
 
-                </tbody>
-            </table>
-            <br/>
+                            </tbody>
 
-            <h4>Size Analysis Summary</h4>
-            <table class='table size-summary-table'>
+                        </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="dataBlock">
+                    <div class="dataBlockHeading">
+                        <h3>Size Analysis Summary</h3>
+                    </div>
+                    <div class="dataBlockContent">
+                        <div class="tblScroll">
+                        <table class='table size-summary-table'>
 <tr><td id='s-size-summary-table-count' class='right-cell'>2</td><td>tables whose row data  is expected to use between&nbsp;</td><td id='s-size-summary-table-min' class='right-cell calculated-cell'>296000</td><td>&nbsp;and&nbsp;</td><td id='s-size-summary-table-max' class='right-cell calculated-cell'>1128000</td><td>&nbsp; of memory.&nbsp;</td></tr>
 <tr><td id='s-size-summary-view-count' class='right-cell'>1</td><td>materialized views whose row data  is expected to use between&nbsp;</td><td id='s-size-summary-view-min' class='right-cell calculated-cell'>100000</td><td>&nbsp;and&nbsp;</td><td id='s-size-summary-view-max' class='right-cell calculated-cell'>292000</td><td>&nbsp; of memory.&nbsp;</td></tr>
 <tr><td id='s-size-summary-index-count' class='right-cell'>2</td><td>indexes whose key data and overhead  is expected to use about&nbsp;</td><td id='s-size-summary-index-min' class='right-cell calculated-cell'>92</td><td colspan='3'>&nbsp; of memory.&nbsp;</td></tr>
@@ -427,336 +453,24 @@ JAVA VM:          OpenJDK 64-Bit Server VM (24.65-b04, mixed mode)<br/>
 <tr><td colspan='2'><b>Total user data is expected to use between</b>&nbsp;</td><td id='s-size-summary-total-min' class='right-cell calculated-cell'>396092</td><td>&nbsp;<b>and</b>&nbsp;</td><td id='s-size-summary-total-max' class='right-cell calculated-cell'>1420092</td><td>&nbsp<b>of memory.</b></td></tr>
 </table>
 
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         </div>
-
-      <hr>
-
-      <footer>
-        <div class='row'>
-        <div class='span6 text-left'>
-            <a href='http://voltdb.com/docs'><i class='icon-book'></i> VoltDB Documentation</a>
+        <div class="documentation"> <a href="http://voltdb.com/docs" class="icon-document" id="iconDoc">VoltDB Documentation</a> <span>Generated by VoltDB 5.1 on 6 Feb 2015 21:13:36 GMT+00:00</span>
+            <div class="clear"></div>
         </div>
-        <div class='span6 text-right'>
-            Generated by VoltDB 4.8 on 4 Nov 2014 22:04:42 GMT+00:00
-        </div>
-        </div>
-      </footer>
-
-    </div> <!-- /container -->
-
-    <!-- Le javascript
+    </div>
+    </div>
+<!-- Le javascript
     ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="http://assets.voltdb.com/get.py?a=342E382C31343135313338363832373331&b=r&f=jquery-1.9.1.min.js"></script>
-    <script src="http://assets.voltdb.com/b/js/bootstrap.js"></script>
-    <script src="http://assets.voltdb.com/t/js/jquery.tablesorter.js"></script>
-    <script src="http://assets.voltdb.com/t/js/jquery.tablesorter.widgets.js"></script>
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="http://assets.voltdb.com/js/bootstrap.js"></script>
+<script src="http://assets.voltdb.com/js/jquery.tablesorter.js"></script>
+<script src="http://assets.voltdb.com/js/jquery.tablesorter.widgets.js"></script>
+<script src="http://assets.voltdb.com/js/template.js"></script>
 
-    <script>
-        $('#versioncheck').attr('src', 'http://community.voltdb.com/versioncheck?app=catreport&ver=4.8');
-
-        function navigate(hash) {
-            console.log(hash);
-            if (hash.length == 0) hash = '#o';
-            hash = hash.toLowerCase();
-            var anchor = hash.substring(1);
-            var parts = anchor.split('-');
-            var toppage = parts[0];
-
-            // reset everything
-            $('.tablesorter-childRow>td').hide();
-            $('.dropdown2>td').hide();
-            $('.primaryrow>td').show();
-            $('.primaryrow2>td').show();
-            // make arrows point the right way
-            $('.icon-chevron-down').removeClass('icon-chevron-down').addClass('icon-chevron-right');
-            $('.primaryrow').css('background-color', '#ffffff');
-
-            $('.nav-collapse ul li').removeClass('active');
-            $('div.reportpage').hide();
-            $('#' + toppage + '-nav').addClass('active');
-            $('#' + toppage).show();
-
-            if (parts.length > 1) {
-                var primary = parts[1];
-                console.log("primary = " + primary);
-
-                var iconid = "#" + toppage + "-" + primary + "--icon";
-                var dropdownid = "#" + toppage + "-" + primary + "--dropdown";
-
-                $(dropdownid).show();
-                $(iconid).parentsUntil("tbody", 'tr').css('background-color', '#dddddd');
-                $(iconid).removeClass('icon-chevron-right').addClass('icon-chevron-down');
-
-                if (parts.length > 2) {
-                    var secondary = parts[2];
-                    console.log("secondary = " + secondary);
-
-                    var iconid2 = "#" + toppage + "-" + primary + "-" + secondary + "--icon";
-                    var dropdownid2 = "#" + toppage + "-" + primary + "-" + secondary + "--dropdown";
-
-                    $(dropdownid2).show();
-                    $(iconid2).removeClass('icon-chevron-right').addClass('icon-chevron-down');
-                }
-            }
-
-            location.hash = hash;
-        }
-
-        $( document ).ready(function() {
-            console.log("ready!");
-
-            $.extend($.tablesorter.themes.bootstrap, {
-                // these classes are added to the table. To see other table classes available,
-                // look here: http://twitter.github.com/bootstrap/base-css.html#tables
-                table      : 'table table-bordered',
-                header     : 'bootstrap-header', // give the header a gradient background
-                footerRow  : '',
-                footerCells: '',
-                icons      : '', // add "icon-white" to make them white; this icon class is added to the <i> in the header
-                sortNone   : 'bootstrap-icon-unsorted',
-                sortAsc    : 'icon-chevron-up',
-                sortDesc   : 'icon-chevron-down',
-                active     : '', // applied when column is sorted
-                hover      : '', // use custom css here - bootstrap class may not override it
-                filterRow  : '', // filter row class
-                even       : '', // odd row zebra striping
-                odd        : ''  // even row zebra striping
-            });
-
-            $(".tableL1").tablesorter({
-                theme : 'bootstrap',
-                widthFixed: true,
-                headerTemplate : '{content} {icon}',
-                widgets : [ "uitheme", "filter", "stickyHeaders" ],
-                widgetOptions : {
-                    filter_reset : ".reset",
-                    filter_hideFilters : false
-                },
-                cssChildRow: "tablesorter-childRow"
-            });
-
-            $('.tableL1').delegate('.togglex', 'click' ,function(){
-                var id = $(this).attr('id');
-                var toppage = id.split('-')[0];
-                var dropdownid = "#" + id + "--dropdown";
-
-                var hash = "#" + id;
-                if ($(dropdownid).is(":visible")) {
-                    hash = "#" + toppage;
-                }
-                history.replaceState(null, null, hash);
-                navigate(hash);
-                return false;
-            });
-
-            $('.tableL2').delegate('.togglex', 'click' ,function(){
-                var id = $(this).attr('id');
-
-                console.log("l2click: " + id);
-
-                var parts = id.split('-');
-                var toppage = parts[0];
-                var primary = parts[1];
-                var dropdownid = "#" + id + "--dropdown";
-
-                var hash = "#" + id;
-                if ($(dropdownid).is(":visible")) {
-                    console.log("l2clickVISIBLE");
-                    hash = "#" + toppage + "-" + primary;
-                }
-                else {
-                    console.log("not visible");
-                }
-                history.replaceState(null, null, hash);
-                navigate(hash);
-                return false;
-            });
-
-            $(".tableL3").tablesorter({
-                theme : 'bootstrap',
-                widthFixed: true,
-                headerTemplate : '{content} {icon}',
-                widgets : [ "uitheme", "filter", "stickyHeaders" ],
-                widgetOptions : {
-                    filter_reset : ".reset",
-                    filter_hideFilters : false
-                },
-                cssChildRow: "tablesorter-childRow"
-            });
-
-            $('.tableL3').delegate('.togglex', 'click' ,function(){
-                var id = $(this).attr('id');
-                var toppage = id.split('-')[0];
-                var dropdownid = "#" + id + "--dropdown";
-
-                var hash = "#" + id;
-                if ($(dropdownid).is(":visible")) {
-                    hash = "#" + toppage;
-                }
-                history.replaceState(null, null, hash);
-                navigate(hash);
-                return false;
-            });
-
-            navigate($(location).attr('hash'));
-
-            $(window).bind('hashchange', function () { //detect hash change
-                navigate(window.location.hash);
-            });
-
-            // tooltips
-            $('.l-Table').popover({trigger:'focus hover',delay:{show:500,hide:100},placement:'top',content:
-                'Persistent Relational Table'});
-            $('.l-Materialized_View').popover({trigger:'focus hover',delay:{show:500,hide:100},placement:'top',content:
-                'Views are always materialized and incrementally maintained.'});
-            $('.l-Replicated').popover({trigger:'focus hover',delay:{show:500,hide:100},placement:'top',content:
-                'Table data is present at all partitions. Updates are a multi-partition operation.'});
-            $('.l-Partitioned').popover({trigger:'focus hover',delay:{show:500,hide:100},placement:'top',content:
-                'Table data is partitioned on the hash of a column. Data is replicated to k+1 hosts.'});
-            $('.l-Has-PKey').popover({trigger:'focus hover',delay:{show:500,hide:100},placement:'top',content:
-                'The table has a primary key and corresponding index.'});
-            $('.l-No-PKey').popover({trigger:'focus hover',delay:{show:500,hide:100},placement:'top',content:
-                'The table has no primary key. Deletes and updates will require scans.'});
-            $('.l-Read').popover({trigger:'focus hover',delay:{show:500,hide:100},placement:'top',content:
-                'This procedure doesn\'t alter the content of the database.'});
-            $('.l-Write').popover({trigger:'focus hover',delay:{show:500,hide:100},placement:'top',content:
-                'This procedure can alter the contents of the database.'});
-            $('.l-Single').popover({trigger:'focus hover',delay:{show:500,hide:100},placement:'top',content:
-                'This procedure only runs at one partition.'});
-            $('.l-Multi').popover({trigger:'focus hover',delay:{show:500,hide:100},placement:'top',content:
-                'This procedure runs at all partitions, which can affect performance.'});
-            $('.l-Java').popover({trigger:'focus hover',delay:{show:500,hide:100},placement:'top',content:
-                'This procedure uses Java code for logic.'});
-            $('.l-Single-Stmt').popover({trigger:'focus hover',delay:{show:500,hide:100},placement:'top',content:
-                'This procedure was defined in the DDL file as a single SQL statement.'});
-            $('.l-Scans').popover({trigger:'focus hover',delay:{show:500,hide:100},placement:'top',content:
-                'This procedure or statement might be using full table scans. While this isn\'t ' +
-                'always bad, it\'s possible adding an index could improve performance.'});
-            $('.l-Determinism').popover({trigger:'focus hover',delay:{show:500,hide:100},placement:'top',content:
-                'This statement or procedure could potentially use SQL that outputs non-deterministic ' +
-                'results which then may be used to modify state. If this happens, the cluster will ' +
-                'halt. Consider adding an ORDER BY clause to make a SELECT statement deterministic.'});
-
-            sizes_update_all();
-        });
-
-        function numberWithCommas(n) {
-            n = Math.round(n / 1000.0);
-            var parts=n.toString().split(".");
-            return parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",") + (parts[1] ? "." + parts[1] : "") + " K";
-        }
-
-        function size_table_element(name, nrow) {
-        	var id = "s-size-".concat(nrow, '-', name);
-            var e = document.getElementById(id);
-            return e;
-        }
-
-        function size_table_value(name, nrow) {
-        	var elem = size_table_element(name, nrow);
-        	var value = Math.floor(name == "count" ? elem.value : elem.innerHTML);
-        	return value;
-        }
-
-        function size_table_update(name, nrow, value) {
-            var elem = size_table_element(name, nrow);
-            if (elem != null) {
-                elem.innerHTML = numberWithCommas(value);
-            }
-        }
-
-        function size_summary_element(type, name) {
-            var id = "s-size-summary-".concat(type, '-', name);
-            var e = document.getElementById(id);
-            return e;
-        }
-
-        function size_summary_value(type, name) {
-            var elem = size_summary_element(type, name);
-            var value = Math.floor(elem.innerHTML);
-            return value;
-        }
-
-        function size_summary_update(type, name, value) {
-            var elem = size_summary_element(type, name);
-            if (elem != null) {
-                elem.innerHTML = numberWithCommas(value);
-            }
-        }
-
-        function sizes_get_row(nrow) {
-            return {
-                "count": size_table_value("count", nrow),
-                "rmin": size_table_value("rmin", nrow),
-                "rmax": size_table_value("rmax", nrow),
-                "imin": size_table_value("imin", nrow),
-                "imax": size_table_value("imax", nrow),
-                "tmin": size_table_value("tmin", nrow),
-                "tmax": size_table_value("tmax", nrow)
-            };
-        }
-
-        // Do the size worksheet calculations for a single row.
-        function sizes_update_row(nrow) {
-        	var v = sizes_get_row(nrow);
-            size_table_update("tmin", nrow, (v["rmin"] + v["imin"]) * v["count"]);
-            size_table_update("tmax", nrow, (v["rmax"] + v["imax"]) * v["count"]);
-        }
-
-        /*
-         * Update the size worksheet summary.
-         */
-        function sizes_update_summary() {
-        	var ntables = size_summary_value("table", "count");
-            var nviews = size_summary_value("view", "count");
-            var nrow = 0;
-            var tmin = 0;
-            var tmax = 0;
-            var vmin = 0;
-            var vmax = 0;
-            var imin = 0;
-            var imax = 0;
-        	for (var ntable = 0; ntable < ntables; ++ntable) {
-                var v = sizes_get_row(++nrow);
-                tmin += (v["rmin"] * v["count"]);
-                tmax += (v["rmax"] * v["count"]);
-                imin += (v["imin"] * v["count"]);
-                imax += (v["imax"] * v["count"]);
-        	}
-            for (var nview = 0; nview < nviews; ++nview) {
-                var v = sizes_get_row(++nrow);
-                vmin += (v["rmin"] * v["count"]);
-                vmax += (v["rmax"] * v["count"]);
-                imin += (v["imin"] * v["count"]);
-                imax += (v["imax"] * v["count"]);
-            }
-            size_summary_update("table", "min", tmin);
-            size_summary_update("table", "max", tmax);
-            size_summary_update("view", "min", vmin);
-            size_summary_update("view", "max", vmax);
-            size_summary_update("index", "min", imin);
-            size_summary_update("index", "max", imax);
-            size_summary_update("total", "min", tmin + vmin + imin);
-            size_summary_update("total", "max", tmax + vmax + imax);
-        }
-
-        /*
-         * Do all the size worksheet calculations at once.
-         * Call sizes_update_row() when a single row is changed.
-         */
-        function sizes_update_all() {
-            // Use the summary counts to determine the number of table rows.
-            var ntables = size_summary_value("table", "count");
-            var nviews = size_summary_value("view", "count");
-            for (var nrow = 1; nrow <= ntables + nviews; ++nrow) {
-                sizes_update_row(nrow);
-            }
-            sizes_update_summary();
-        }
-
-    </script>
-
-  </body>
+</body>
 </html>

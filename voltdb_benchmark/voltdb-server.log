@@ -8,10 +8,12 @@ Initializing VoltDB...
 
 --------------------------------
 
-Build: 4.8 voltdb-4.8-0-g895def8-local Community Edition
+Build: 5.1 voltdb-5.0.1-30-g1fb76b5 Community Edition
 Connecting to VoltDB cluster as the leader...
 Host id of this node is: 0
 Initializing the database. This may take a moment...
+Strict java memory checking is enabled, don't do release builds or performance runs with this enabled. Invoke "ant clean" and "ant -Djmemcheck=NO_MEMCHECK" to disable.
+WARN: Strict java memory checking is enabled, don't do release builds or performance runs with this enabled. Invoke "ant clean" and "ant -Djmemcheck=NO_MEMCHECK" to disable.
 WARN: This is not a highly available cluster. K-Safety is set to 0.
 WARN: Durability is turned off. Command logging is off.
 Server completed initialization.

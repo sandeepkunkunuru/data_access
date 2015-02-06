@@ -11,8 +11,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Maven: org.voltdb:voltdb-client:4.4" level="project" />
-    <orderEntry type="library" name="Maven: org.voltdb:voltdb:4.4" level="project" />
+    <orderEntry type="library" name="Maven: org.voltdb:voltdb-client:5.1" level="project" />
+    <orderEntry type="library" name="Maven: org.voltdb:voltdb:5.1" level="project" />
   </component>
 </module>
-
